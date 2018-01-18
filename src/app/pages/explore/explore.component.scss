@@ -1,0 +1,29 @@
+.mat-card-welcome{
+  background-color: white;
+
+  background-image: url('https://stillsfrmfilms.files.wordpress.com/2012/09/04.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 500px;
+  margin-top:1em;
+
+}
+.container{
+  width: 90%;
+  height: 1000px;
+  position: relative;
+    top: 5%;
+    left: 5%;
+}
+.mat-img{
+  object-fit: scale-down;
+}
+.film-title{
+  position: absolute;
+  right: 0;
+  bottom:0;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  color: white;
+}

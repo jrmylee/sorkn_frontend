@@ -1,0 +1,26 @@
+<header>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+</header>
+<mat-sidenav-container class="main-container">
+  <mat-sidenav #sidenav mode="side" opened="true" class="sidenav"[fixedInViewport]=false>
+    <mat-list>
+        <button mat-button routerLink="/explore" class="nav-button">
+          <a class="sidenav-text">Explore</a>
+        </button>
+
+        <button mat-button routerLink="/scripts" class="nav-button" *ngIf="isLoggedIn">
+          <a class="sidenav-text">My Scripts</a>
+        </button>
+
+        <button mat-button routerLink="/greats" class="nav-button">
+          <a class="sidenav-text">Lists</a>
+        </button>
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content  class="sidenav-content" style="background-color: #f2f1ed;">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

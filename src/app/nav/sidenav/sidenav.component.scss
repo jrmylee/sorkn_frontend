@@ -1,0 +1,36 @@
+.sidenav {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background:#95d7ed;
+  width: 100px;
+ min-width: 100px;
+ max-width: 100px;
+}
+.sidenav-content{
+
+
+}
+.main-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.list-items{
+  color:black;
+  font-family:Roboto;
+  font-weight: 200;
+
+}
+.text{
+  padding-right: 50px;
+}
+.nav-button{
+  width: 100%;
+}
+.sidenav-text{
+    font-size: 1em;
+}

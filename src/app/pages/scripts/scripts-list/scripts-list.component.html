@@ -1,0 +1,35 @@
+  <div>
+    <router-outlet></router-outlet>
+    <mat-card class="mat-card">
+      <h1>Scripts</h1>
+      <mat-table #table [dataSource]="dataSource" *ngIf="loaded"> 
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+          <mat-cell *matCellDef="let script"> {{script.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let script"> {{script.description}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns; let index=index"
+         [routerLink]="['../s', index]"
+         class="row">
+       </mat-row>
+      </mat-table>
+
+      <div class="fab_button">
+        <button
+        mat-fab
+        style="background-color: #C22F27;"
+        [routerLink]="['/new']">
+          <mat-icon svgIcon="plus"></mat-icon>
+        </button>
+      </div>
+    </mat-card>
+
+  </div>

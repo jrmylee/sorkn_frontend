@@ -1,0 +1,19 @@
+<form class="form-group" (ngSubmit)="onAddItem(f)" #f="ngForm">
+  <mat-form-field>
+    <div class="form-group">
+      <input matInput placeholder="Film" type="text" id="name" >
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="form-group">
+      <input matInput placeholder="Year">
+    </div>
+  </mat-form-field>
+
+  <button mat-button color="primary" type="submit">{{editMode? 'Update':'Add' }}</button>
+  <button mat-button color="primary" type="delete"
+       (click)="onDelete()" >Delete</button>
+  <button mat-button color="primary" type="clear" (click)="onClear()">Clear</button>
+
+</form>

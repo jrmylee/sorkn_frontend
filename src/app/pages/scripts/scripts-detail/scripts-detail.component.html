@@ -1,0 +1,24 @@
+<mat-card class="card-preview" [@myAnimation]='state' *ngIf="loaded">
+
+  <button  (click)="delete()" mat-icon-button class="icon">
+    <mat-icon svgIcon="delete"></mat-icon>
+  </button>
+
+  <button mat-icon-button class="icon">
+    <mat-icon svgIcon="pencil"></mat-icon>
+  </button>
+
+  <button  (click)="animateMe()" mat-icon-button class="icon">
+    <mat-icon svgIcon="open-in-new"></mat-icon>
+  </button>
+
+
+  <h1 class="mat-title">{{script.name}}</h1>
+
+  <p class="mat-body-1">{{script.description}}</p>
+
+</mat-card>
+
+<mat-card *ngIf="loaded">
+  <p>{{script.script}}</p>
+</mat-card>

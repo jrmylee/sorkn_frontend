@@ -1,0 +1,33 @@
+<mat-card class="mat-card-reg">
+  <h1>Register</h1>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="full-width">
+      <mat-form-field>
+        <input matInput
+        placeholder="Username"
+        class="form-control"
+        ngModel
+        name="username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput
+        placeholder="Password"
+        ngModel
+        name="password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput
+        placeholder="Email"
+        class="form-control"
+        ngModel
+        name="email">
+      </mat-form-field>
+
+    </div>
+    <button mat-raised-button type="submit" style="background-color: #C22F27; color: white;">Submit</button>
+
+  </form>
+
+</mat-card>
