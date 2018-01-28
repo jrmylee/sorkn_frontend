@@ -1,18 +1,40 @@
 
 <mat-toolbar class="header">
+  <button mat-icon-button class="hamburger-menu" *ngIf="!isDesktop" (click)="sidenavClick()">
+    <mat-icon svgIcon="menu"></mat-icon>
+  </button>
+
   <button mat-button routerLink="/explore">
     <h2 class="mat-title">Sorkn</h2>
   </button>
-  <span class="example-fill-remaining-space"></span>
+
+  <mat-card class="search-form">
+    <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <mat-form-field
+        class="search-field"
+        style="width: 800px; max-height:50px; position:fixed;top:0;">
+          <span matPrefix>
+            <mat-icon svgIcon="magnify" style="text-align: bottom;"></mat-icon>
+             &nbsp;</span>
+          <input matInput placeholder="Search"
+          name="search_value" #searchbar
+           ngModel>
+        </mat-form-field>
+      </form>
+    </mat-card>
+
   <div *ngIf="!isLoggedIn">
-    <button mat-button (click)="onRegister()" [routerLink]="['/register']">Register</button>
-    <button mat-button (click)="onLogin()" [routerLink]="['/login']">Login</button>
+    <button mat-raised-button
+     (click)="onLogin()"
+     [routerLink]="['/login']"
+    style="background-color:#30ddf4; min-width:1%;" >Login</button>
   </div>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn">
+  <button mat-icon-button class="icon" [matMenuTriggerFor]="menu" *ngIf="isLoggedIn">
     <mat-icon svgIcon="account"></mat-icon>
   </button>
-  <mat-menu #menu="matMenu">
+
+  <mat-menu #menu="matMenu" >
     <button mat-menu-item [routerLink]="['/u', 'jrmylee ']">
       <mat-icon svgIcon="account-outline" ></mat-icon>
       <span>My Account</span>
@@ -22,21 +44,4 @@
       <span>Log Out</span>
     </button>
   </mat-menu>
-
-
 </mat-toolbar>
-
-<!-- <div class="collapse navbar-collapse">
-  <ul class="nav navbar-nav">
-
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-    <li class="dropdown" appDropdown>
-      <a class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a>Save Data</a></li>
-        <li><a>Fetch Data</a></li>
-      </ul>
-    </li>
-  </ul>
-</div> -->

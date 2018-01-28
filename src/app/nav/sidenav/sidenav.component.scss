@@ -1,19 +1,23 @@
+@media only screen and (max-width: 750px) {
+.sidenav{
+ display: none;
+ }
+ }
+
 .sidenav {
   display: flex;
   justify-content: center;
   height: 100%;
-  background:#95d7ed;
+  background:#f7f1de;
   width: 100px;
  min-width: 100px;
  max-width: 100px;
 }
 .sidenav-content{
-
-
 }
 .main-container {
   position: absolute;
-  top: 60px;
+  top: 68px;
   bottom: 0px;
   left: 0;
   right: 0;

@@ -1,5 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+
+body [class^='mat-'], body [class*=' mat-'] {
+  font-family: 'Heebo', sans-serif;
+}
 // .mat-card{
 //   width: 50%;
 //   position:relative;

@@ -1,3 +1,6 @@
-<p>
-  verify works!
-</p>
+<mat-card class="verify-card" *ngIf="processed">
+  <mat-icon svgIcon="check-all" style="color: 'green';" *ngIf="verified"></mat-icon>
+  <mat-icon svgIcon="alert-circle" style="color: 'red';" *ngIf="!verified"></mat-icon>
+
+  <p>{{message}}</p>
+</mat-card>

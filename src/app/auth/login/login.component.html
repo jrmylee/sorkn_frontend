@@ -14,12 +14,16 @@
         <input matInput
         placeholder="Password"
         ngModel
-        name="password">
+        name="password"
+        [type]="'password'">
       </mat-form-field>
 
     </div>
-    <button mat-raised-button type="submit" style="background-color: #C22F27; color: white;">Submit</button>
-
+    <button mat-raised-button type="submit" style="  display: inline-block; background-color: #C22F27; color: white;">Submit</button>
+    <button mat-raised-button
+     [routerLink]="['/register']"
+     style="background-color:#ff8170;   display: inline-block;
+  ">Register</button>
   </form>
 
 </mat-card>

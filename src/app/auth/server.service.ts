@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {User} from '../shared/user.model';
 import {Script} from '../pages/scripts/script_model';
+import {Film} from '../shared/film.model';
 
 import {TokenService} from './token.service';
 @Injectable()
@@ -50,6 +51,10 @@ export class ServerService implements OnInit{
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve()))
     });
   }
-
-
+  getIndieFilmTitle(){
+    return this.http.get<Film[]>(this.restAPILink + 'indiefilms');
+  }
+  getCurrentMovieData(title: string){
+    return this.http.get<Film>(this.restAPILink + 'moviedetails/' +title);
+  }
 }

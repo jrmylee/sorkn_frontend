@@ -38,6 +38,8 @@ import {MatInputModule, MatButtonModule,  MatAutocompleteModule,
   MatTooltipModule,
   MatStepperModule,MatIconRegistry} from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { ChangeDetectorRef } from '@angular/core';
 
 import { HeaderComponent } from './nav/header/header.component';
 import { ScriptsComponent } from './pages/scripts/scripts.component';
@@ -59,11 +61,15 @@ import {UserService} from './user/user.service';
 import {AuthService} from './auth/auth.service';
 import {TokenService} from './auth/token.service';
 import {ServerService} from './auth/server.service';
+import {NavService} from './nav/nav.service';
 
 import { HighlightDirective} from './shared/highlight.directive';
 import { OpeningComponent } from './pages/explore/opening/opening.component';
 import { TrendingComponent } from './pages/explore/trending/trending.component';
 import { VerifyComponent } from './auth/verify/verify.component';
+import { InspirationComponent } from './pages/explore/inspiration/inspiration.component';
+import { FilmdetailComponent } from './pages/films/filmdetail/filmdetail.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +90,10 @@ import { VerifyComponent } from './auth/verify/verify.component';
     LoginComponent,
     OpeningComponent,
     TrendingComponent,
-    VerifyComponent
+    VerifyComponent,
+    InspirationComponent,
+    FilmdetailComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -122,10 +131,11 @@ import { VerifyComponent } from './auth/verify/verify.component';
     MatTooltipModule,
     FormsModule, AppRoutingModule,ReactiveFormsModule,
     CdkTableModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
   ],
   providers: [GreatsListService,TokenService,
-     ScriptService, UserService, AuthService, ServerService,
+     ScriptService, UserService, AuthService, ServerService, NavService
   ],
   bootstrap: [AppComponent]
 })

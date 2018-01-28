@@ -8,14 +8,29 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./verify.component.scss']
 })
 export class VerifyComponent implements OnInit {
-
+  processed: boolean = false;
+  verified: boolean = false;
+  message: string;
   constructor(private route: ActivatedRoute,
-  private router: Router, private authService: AuthService) { }
+  private router: Router, private authService: AuthService) {
+
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params:Params) => {
       console.log(params['URL']);
-      this.authService.verifyUser(params['URL']);
+      this.authService.verifyUser(params['URL']).subscribe(
+        (res)=>{
+          this.processed = true;
+          this.verified = true;
+          this.message = res.body;
+          console.log(res);
+        },(err)=>{
+          this.processed = true;
+          this.message = JSON.parse(err.error).msg;
+          console.log(err);
+        }
+      );
     });
   }
 

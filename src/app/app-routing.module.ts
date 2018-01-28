@@ -12,11 +12,14 @@ import {UserComponent} from './user/user.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {LoginComponent} from './auth/login/login.component';
 import {VerifyComponent} from './auth/verify/verify.component';
+import {FilmdetailComponent} from './pages/films/filmdetail/filmdetail.component';
+import {AboutComponent} from './pages/about/about.component';
 
 import {ScriptService} from './pages/scripts/script.service';
 const appRoutes: Routes = [
   { path: '', redirectTo: '/explore', pathMatch: 'full'},
   {path: 'explore', component: ExploreComponent},
+  {path: 'about', component: AboutComponent},
   {path: 'scripts', component:ScriptsListComponent, children: [
     {path: ':id/edit', component: ScriptEditComponent}
   ]},
@@ -26,7 +29,8 @@ const appRoutes: Routes = [
   {path: 'u/:id', component: UserComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'confirmation/:URL', component: VerifyComponent}
+  {path: 'confirmation/:URL', component: VerifyComponent},
+  {path: 'f/:id', component: FilmdetailComponent}
 ];
 
 @NgModule({

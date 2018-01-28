@@ -2,9 +2,17 @@
   cursor: pointer;
 }
 .fab_button{
-  margin-bottom: -50%;
-  transform: translate(100%, -400%);
+  // margin-bottom: -50%;
+  transform: translate(100%, 0%);
 }
 .mat-card{
+  width: 80%;
+  height: stretch;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 
 }

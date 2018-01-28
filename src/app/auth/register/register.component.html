@@ -1,28 +1,53 @@
 <mat-card class="mat-card-reg">
   <h1>Register</h1>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
     <div class="full-width">
-      <mat-form-field>
-        <input matInput
-        placeholder="Username"
-        class="form-control"
-        ngModel
-        name="username">
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput
-        placeholder="Password"
-        ngModel
-        name="password">
-      </mat-form-field>
-
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input matInput
         placeholder="Email"
-        class="form-control"
-        ngModel
-        name="email">
+        formControlName="email"
+        >
+
+        <mat-error *ngIf="email.invalid">
+          Please enter a valid email address
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <input matInput
+        formControlName="user"
+        placeholder="Username"
+        >
+
+        <mat-error *ngIf="user.invalid">
+          Please enter a valid username
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <input matInput
+        formControlName="name"
+        placeholder="Name"
+        >
+
+        <mat-error *ngIf="name.invalid">
+          Please enter a name!
+        </mat-error>
+
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput
+        placeholder="Password"
+        formControlName="password"
+        [type]="'password'"
+        >
+
+        <mat-error *ngIf="password.invalid">
+          Enter a password longer than 6 characters
+        </mat-error>
+
       </mat-form-field>
 
     </div>

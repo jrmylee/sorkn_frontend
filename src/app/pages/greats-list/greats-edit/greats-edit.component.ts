@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, EventEmitter, Output,ViewChild } from '@angular/core';
- import {GreatFilm} from '../../../shared/greatfilm.model';
+ import {Film} from '../../../shared/film.model';
  import {GreatsListService} from '../greats-list.service';
  import {NgForm} from '@angular/forms';
  import {Subscription} from 'rxjs/Subscription';
@@ -14,7 +14,7 @@ export class GreatsEditComponent implements OnInit {
   subscription : Subscription;
   editMode = false;
   edittedItemIndex: number;
-  editedItem: GreatFilm;
+  editedItem: Film;
   constructor(private greatsListService: GreatsListService) { }
 
   ngOnInit() {
@@ -32,16 +32,7 @@ export class GreatsEditComponent implements OnInit {
     );
   }
   onAddItem(form: NgForm){
-    const value = form.value;
-    console.log("hi: " + value.name);
-    const newGreat = new GreatFilm(value.film, value.year);
-    if(this.editMode){
-      this.greatsListService.updateGreat(this.edittedItemIndex, newGreat);
-    }else{
-      this.greatsListService.addGreat(newGreat);
-    }
-    form.reset();
-    this.editMode = false;
+
   }
 
   onClear(){

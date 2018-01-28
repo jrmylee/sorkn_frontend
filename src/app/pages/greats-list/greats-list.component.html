@@ -1,23 +1,27 @@
-<mat-card class="greats-card">
-  <h1>Great Films</h1>
-  <mat-table #table [dataSource]="dataSource">
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
-      <mat-cell *matCellDef="let great"> {{great.title}} </mat-cell>
-    </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
-      <mat-cell *matCellDef="let great"> {{great.year}} </mat-cell>
-    </ng-container>
+<div class="container">
+  <mat-card class="greats-card">
+    <h1>Great Films</h1>
+    <mat-table #table [dataSource]="dataSource">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+        <mat-cell *matCellDef="let great"> {{great.title}} </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns; index"
-     [routerLink]="row.index"
-     class="row">
-   </mat-row>
-  </mat-table>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+        <mat-cell *matCellDef="let great"> {{great.year}} </mat-cell>
+      </ng-container>
 
-</mat-card>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns; index"
+       [routerLink]="['../f', row.title]"
+       class="row">
+     </mat-row>
+    </mat-table>
+
+  </mat-card>
+
+</div>
