@@ -5,6 +5,7 @@ import {Film} from '../../../shared/film.model';
 import {ServerService} from '../../../auth/server.service';
 
 import * as anime from 'animejs';
+import * as movieInfo from 'movie-info';
 @Component({
   selector: 'app-opening',
   templateUrl: './opening.component.html',
@@ -17,9 +18,10 @@ export class OpeningComponent implements OnInit {
 
   constructor(private serverService: ServerService) {
     this.serverService.getIndieFilmTitle().subscribe((movies)=>{
+      console.log(movies);
       for(var i = 0; i < movies.length; i++){
         if(movies[i]!=null){
-          this.serverService.getCurrentMovieData(movies[i].title).subscribe((res)=>{
+          this.serverService.getMovieDataFromTitle(movies[i].title).subscribe((res)=>{
             if(res!=null){
               this.films.push(res);
             }
@@ -30,8 +32,7 @@ export class OpeningComponent implements OnInit {
     },(err)=>{
       console.log(err);
     });
-
-  }
+}
   ngAfterViewInit() {
     var path = anime.path('#motionPath path');
 

@@ -1,30 +1,36 @@
 import {Subject} from 'rxjs/Subject';
 import {Film} from '../../shared/film.model';
-export class GreatsListService{
-  greatsChanged = new Subject<Film[]>();
-  startedEditing = new Subject<number>();
-  private greats: Film[]=[
-    {title: "Blade Runner", year: 1982},
-    {title: "Blade Runner 2049", year: 2017}
+import {GreatsList} from '../../shared/list.model';
+import {ServerService} from '../../auth/server.service';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable()
+export class GreatsListService {
+  greats: GreatsList[];
+  loaded: Boolean=false;
+  constructor(private server: ServerService){
+
+  }
+  lists : GreatsList[] = [
+    
+      
   ];
 
-  getGreats(){
-    return this.greats.slice();
+  getLists(){
+    return this.server.getLists();
   }
-
-  getGreat(index: number){
-    return this.greats[index];
+  onClick(){
+    console.log("zoop!");
   }
-  addGreat(great: Film){
-    this.greats.push(great);
-    this.greatsChanged.next(this.greats.slice());
+  addList(list: GreatsList){
+    this.server.addList(list);
   }
-  removeGreat(index: number){
-    this.greats.splice(index,1);
-    this.greatsChanged.next(this.greats.slice());
+  getList(id: string): Observable<GreatsList>{
+    return this.server.getList(id);
   }
-  updateGreat(index: number, great: Film){
-    this.greats[index] = great;
-    this.greatsChanged.next(this.greats.slice());
+  getBackdrop(film: Film){
+    return ("http://image.tmdb.org/t/p/original/" + film.poster_path);
   }
 }

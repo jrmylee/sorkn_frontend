@@ -14,8 +14,14 @@ import {LoginComponent} from './auth/login/login.component';
 import {VerifyComponent} from './auth/verify/verify.component';
 import {FilmdetailComponent} from './pages/films/filmdetail/filmdetail.component';
 import {AboutComponent} from './pages/about/about.component';
+import { FilmsComponent } from './pages/films/films/films.component';
+import { SearchComponent } from './pages/search/search.component';
+import { ListdetailComponent } from './pages/greats-list/listdetail/listdetail.component';
 
 import {ScriptService} from './pages/scripts/script.service';
+
+import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/explore', pathMatch: 'full'},
   {path: 'explore', component: ExploreComponent},
@@ -25,12 +31,18 @@ const appRoutes: Routes = [
   ]},
   {path: 'new', component: ScriptNewComponent},
   {path: 's/:id', component: ScriptsDetailComponent},
-  {path: 'greats', component: GreatsListComponent},
+  {path: 'lists', component: GreatsListComponent},
   {path: 'u/:id', component: UserComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'confirmation/:URL', component: VerifyComponent},
-  {path: 'f/:id', component: FilmdetailComponent}
+  {path: 'f/:id', component: FilmdetailComponent},
+  {path: 'films', component: FilmsComponent},
+  {path: 'search', component: SearchComponent},
+  {path: 'l/:id', component: ListdetailComponent},
+  {path: 'createlist', component: NewlistComponent}
+
+
 ];
 
 @NgModule({

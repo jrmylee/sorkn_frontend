@@ -1,6 +1,9 @@
-.greats-card{
-  width: 80%;
-  height: stretch;
+.list-card{
+  background-color: rgb(255, 255, 255);
+  flex: 0 1 50em;
+  height:250px;
+  margin-top: 1em;
+  cursor: pointer;
 }
 .highlight{
   background: #42A948; /* green */
@@ -10,5 +13,32 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
+}
+.my-lists{
+  flex: 0 1 80%;
+  margin-top: 1em;
+  height: 500px;
+}
+.lists-container{
+  display: flex;
+}
+.add-button{
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.profile-image{
+  background-image: url('https://www.serviceseeking.com.au/assets/business_profile/default-profile-pic.svg');
+  background-size: cover;
+}
+.poster-card{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 72px;
+  height:108px;
+  margin: 5px 5px 5px 5px;
 }

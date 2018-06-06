@@ -1,11 +1,14 @@
 .film-card{
-  flex: 0 1 20%;
+  flex: 0 1 20.5%;
   margin: 5px 5px 5px 5px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position:center top;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .container{
+  margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -21,11 +24,31 @@
   float: right;
 
 }
+.mat-card-opening{
+  display:flex;
+  flex: row;
+  flex-wrap: wrap;
+}
+.header{
+  flex: 0 0 100%;
+}
+.container
+{
+    display: flex;
+    flex: row;
+}
+.film-card{
+  flex: auto;
+
+}
 .score{
   display: inline-block;
   float: right;
   vertical-align: bottom;
-
+  color:black;
+}
+.title{
+  color:black;
 }
 .square,
 .circle {
@@ -34,8 +57,11 @@
   width: 18px;
   height: 18px;
   margin: 1px;
-  background-color: white;
+  background-color: #8cb8ff;
   font-size: 12px;
+}
+.circle {
+  border-radius: 50%;
 }
 .follow-path {
   position: absolute;

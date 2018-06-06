@@ -1,10 +1,25 @@
-.card-preview{
-  width: 50%;
-  position:relative;
-  top: 25%;
-  left: 25%;
-  padding: 25px 25px 25px 25px;
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.script-card{
+  flex: 0 1 40%;
+  height:200em;
+  margin-top: 2em;
 }
 .icon{
   float: right;
+}
+.text{
+  text-align:center;
+  white-space: pre-wrap;
+}
+@media only screen and (max-width: 1024px) {
+  .script-card{
+    flex: 0 1 95%;
+    max-width: 95%;
+    margin-top:1em;
+  }
 }

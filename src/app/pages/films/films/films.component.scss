@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+}
+.film-1{
+    margin-top:1em;
+    flex: 0 1 90%;
+    margin-bottom: 1em;
+    background-image: url('https://i.imgur.com/TPYPg3q.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 500px;
+    cursor: pointer;
+  }
+.film-1-header{
+    display: flex;
+    flex-direction: column;
+}
+.header-text-1{
+    color: white;
+    font-size: 5em;
+
+  }
+  .header-text-2{
+    color: white;
+}
+.header-text-3{
+    color: white;
+}

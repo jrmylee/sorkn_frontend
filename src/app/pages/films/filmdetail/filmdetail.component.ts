@@ -14,8 +14,9 @@ export class FilmdetailComponent implements OnInit {
   film: Film;
   constructor(private activatedRoute: ActivatedRoute, private serverService: ServerService) {
     activatedRoute.params.subscribe( (params:Params)=>{
-      let title = params['id'];
-      serverService.getCurrentMovieData(title).subscribe((film)=>{
+      let id = params['id'];
+      console.log(id);
+      serverService.getMovieData(id).subscribe((film)=>{
         this.loaded = true;
         this.film = film;
       }, (err)=>{console.log(err)});
@@ -26,4 +27,7 @@ export class FilmdetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  getBackdrop(){
+    return "http://image.tmdb.org/t/p/original/" + this.film.backdrop_path;
+  }
 }

@@ -5,35 +5,32 @@
   </button>
 
   <button mat-button routerLink="/explore">
-    <h2 class="mat-title">Sorkn</h2>
+    <h2 class="mat-title">Sorkn Beta</h2>
   </button>
 
-  <mat-card class="search-form">
-    <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
-        <mat-form-field
-        class="search-field"
-        style="width: 800px; max-height:50px; position:fixed;top:0;">
-          <span matPrefix>
-            <mat-icon svgIcon="magnify" style="text-align: bottom;"></mat-icon>
-             &nbsp;</span>
-          <input matInput placeholder="Search"
-          name="search_value" #searchbar
-           ngModel>
-        </mat-form-field>
-      </form>
-    </mat-card>
+  <button mat-icon-button class="search-menu"
+  style="margin-left:left;" *ngIf="checkMobile()" routerLink="/search">
+    <mat-icon svgIcon="magnify"></mat-icon>
+  </button>
 
-  <div *ngIf="!isLoggedIn">
-    <button mat-raised-button
-     (click)="onLogin()"
-     [routerLink]="['/login']"
-    style="background-color:#30ddf4; min-width:1%;" >Login</button>
+  <div class="icon">
+      <button mat-icon-button class="mat-elevation-z1"
+      style="background-color: #4FC3F7;"
+      *ngIf="isLoggedIn"
+      [matMenuTriggerFor]="addMenu">
+          <mat-icon svgIcon="plus"></mat-icon>
+      </button>
+    
+      <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn">
+        <mat-icon svgIcon="account"></mat-icon>
+      </button>
+      
+      <button mat-button class="navbar-button"
+      [routerLink]="['/login']"
+        *ngIf="!isLoggedIn">Login
+      </button>
   </div>
-
-  <button mat-icon-button class="icon" [matMenuTriggerFor]="menu" *ngIf="isLoggedIn">
-    <mat-icon svgIcon="account"></mat-icon>
-  </button>
-
+ 
   <mat-menu #menu="matMenu" >
     <button mat-menu-item [routerLink]="['/u', 'jrmylee ']">
       <mat-icon svgIcon="account-outline" ></mat-icon>
@@ -44,4 +41,49 @@
       <span>Log Out</span>
     </button>
   </mat-menu>
+
+  <mat-menu #addMenu="matMenu" >
+    <button mat-menu-item [routerLink]="['/new']">
+      <mat-icon svgIcon="newspaper" class="mat-icon"></mat-icon>
+      <span>Script</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/createlist']">
+      <mat-icon svgIcon="format-list-numbers" class="mat-icon"></mat-icon>
+      <span>List</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>
+
+  <div class="search-form" *ngIf="!checkMobile()">
+    <mat-card style="background-color: #ECEFF1;border-radius: 10px;">
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+          <mat-form-field
+          class="search-field"
+          style="width: 35%; max-height:50px; position:fixed;top:0;">
+            <span matPrefix>
+              <mat-icon svgIcon="magnify" style="vertical-align: middle;"></mat-icon>
+               &nbsp;
+             </span>
+
+            <span style="display:block;
+            width:100%;box-sizing:border-box;;">
+              <input matInput placeholder='Try "Blade Runner"'
+              name="search_value" (keyup)="searchTerm.next($event.target.value)"
+               ngModel autocomplete="off" style="width:100%;box-sizing:border-box">
+            </span>
+          </mat-form-field>
+        </form>
+
+      </mat-card>
+
+      <mat-card class="suggestions-card" *ngIf="results.length!=0">
+        <div *ngFor="let result of results; let i = index">
+          <mat-card *ngIf="i<5" class="search-result-card" (click)="clickSuggestion(result)">
+            <mat-card-header>
+              <p style="position: absolute; left: 5; top: 0;">{{result.title}}({{result.release_date}})</p>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </mat-card>
+
+  </div>

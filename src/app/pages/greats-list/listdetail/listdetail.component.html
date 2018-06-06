@@ -1,0 +1,21 @@
+<div class="container" *ngIf="list$ | async as list">
+    <mat-card class="background-card" [ngStyle]="{'background-image': 'url(http://image.tmdb.org/t/p/original/' + list.films[0].backdrop_path + ')'}">
+        
+    </mat-card>
+    <mat-card class="list-card">
+        <h1>{{list.name}}</h1>
+  
+      <mat-card-subtitle class="text">By {{list.username}}</mat-card-subtitle>
+      <div class="lists-container">
+          <mat-card *ngFor="let film of list.films" class="poster-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(film) + ')'}" [routerLink]='["/f", film.id]'>
+          </mat-card>
+        </div>
+      <mat-card-content>
+  
+      </mat-card-content>
+  
+    </mat-card>
+
+  
+  </div>
+  

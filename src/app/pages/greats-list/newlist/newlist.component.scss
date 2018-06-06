@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.create-list-container{
+    flex: 0 1 80%;
+    margin-top: 1em;
+}
+.list-container{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+}
+.details-card{
+    flex: 0 1 100%;
+
+}
+.list-card{
+    flex: 0 1 80%;
+    height: stretch;
+}
+.search-form{
+    display: block;
+    width: 100%;
+    max-height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search-field{
+    width:100%;
+}
+.search-result-card{
+background-color: #dee4ed;
+border-radius: 10px;
+width:90%;
+margin-top: 10px;
+min-height: 30px;
+}
+.add-button{
+    margin-left: auto;
+}
+.submit-button{
+    background-color: #4FC3F7;
+    margin-left: auto;
+}

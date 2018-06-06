@@ -46,7 +46,6 @@ import { ScriptsComponent } from './pages/scripts/scripts.component';
 import { ScriptsListComponent } from './pages/scripts/scripts-list/scripts-list.component';
 import { ScriptsDetailComponent } from './pages/scripts/scripts-detail/scripts-detail.component';
 import { GreatsListComponent } from './pages/greats-list/greats-list.component';
-import { GreatsEditComponent } from './pages/greats-list/greats-edit/greats-edit.component';
 import { ScriptEditComponent } from './pages/scripts/script-edit/script-edit.component';
 import { SidenavComponent} from './nav/sidenav/sidenav.component';
 import { UserComponent } from './user/user.component';
@@ -62,6 +61,7 @@ import {AuthService} from './auth/auth.service';
 import {TokenService} from './auth/token.service';
 import {ServerService} from './auth/server.service';
 import {NavService} from './nav/nav.service';
+import {SearchService} from './nav/header/search.service';
 
 import { HighlightDirective} from './shared/highlight.directive';
 import { OpeningComponent } from './pages/explore/opening/opening.component';
@@ -70,6 +70,11 @@ import { VerifyComponent } from './auth/verify/verify.component';
 import { InspirationComponent } from './pages/explore/inspiration/inspiration.component';
 import { FilmdetailComponent } from './pages/films/filmdetail/filmdetail.component';
 import { AboutComponent } from './pages/about/about.component';
+import { FilmsComponent } from './pages/films/films/films.component';
+import { SearchComponent } from './pages/search/search.component';
+import { ListdetailComponent } from './pages/greats-list/listdetail/listdetail.component';
+import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
+import { GreatsSPreviewComponent } from './pages/greats-list/greats-s-preview/greats-s-preview.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +84,6 @@ import { AboutComponent } from './pages/about/about.component';
     ScriptsListComponent,
     ScriptsDetailComponent,
     GreatsListComponent,
-    GreatsEditComponent,
     ScriptEditComponent,
     SidenavComponent,
     HighlightDirective,
@@ -93,7 +97,12 @@ import { AboutComponent } from './pages/about/about.component';
     VerifyComponent,
     InspirationComponent,
     FilmdetailComponent,
-    AboutComponent
+    AboutComponent,
+    FilmsComponent,
+    SearchComponent,
+    ListdetailComponent,
+    NewlistComponent,
+    GreatsSPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -135,7 +144,7 @@ import { AboutComponent } from './pages/about/about.component';
     FlexLayoutModule,
   ],
   providers: [GreatsListService,TokenService,
-     ScriptService, UserService, AuthService, ServerService, NavService
+     ScriptService, UserService, AuthService, ServerService, NavService, SearchService
   ],
   bootstrap: [AppComponent]
 })

@@ -13,6 +13,7 @@ import {NavService} from '../nav.service';
 })
 export class SidenavComponent implements OnInit {
   isLoggedIn: boolean;
+  width: number;
   @ViewChild('sidenav') sidenav: MatDrawer;
 
   constructor(private authService: AuthService, private cdr: ChangeDetectorRef, private navService: NavService){
@@ -26,7 +27,7 @@ export class SidenavComponent implements OnInit {
   ngOnInit(){
   }
   ngAfterViewInit(){
-    if(window.screen.width < 500){
+    if(window.screen.width < 1700){
       this.sidenav.mode = "over";
       this.navService.currentMessage.subscribe(message => {
          if(this.sidenav.opened){
@@ -38,19 +39,26 @@ export class SidenavComponent implements OnInit {
     }else{
       this.sidenav.open();
     }
+    this.width = window.screen.width;
     this.cdr.detectChanges();
 
   }
   @HostListener('window:resize', ['$event'])
     onResize(event) {
-        if (event.target.innerWidth < 500) {
+        if (event.target.innerWidth < 1700) {
           this.sidenav.mode="over";
           this.sidenav.close();
         }else{
           this.sidenav.mode="side";
-          this.sidenav.toggle();
+          if(!this.sidenav.opened){
+            this.sidenav.toggle();
+          }
         }
-
+        this.width = window.screen.width;
     }
-
+    onClick(){
+      if(this.width<1700){
+        this.sidenav.toggle();
+      }
+    }
 }

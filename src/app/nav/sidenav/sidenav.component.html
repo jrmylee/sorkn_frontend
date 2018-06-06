@@ -4,25 +4,45 @@
 <mat-sidenav-container class="main-container">
   <mat-sidenav #sidenav mode="side" opened="true" class="sidenav"[fixedInViewport]=false>
     <mat-list>
-        <button mat-button routerLink="/explore" class="nav-button">
-          <a class="sidenav-text">Explore</a>
+        <button mat-button routerLink="/explore" class="nav-button" (click)="onClick()">
+          <div class="container">
+            <mat-icon svgIcon="earth" class="mat-icon"></mat-icon>
+            <a class="sidenav-text">Explore</a>
+          </div>
         </button>
 
-        <button mat-button routerLink="/scripts" class="nav-button" *ngIf="isLoggedIn">
-          <a class="sidenav-text">My Scripts</a>
+        <button mat-button routerLink="/scripts" class="nav-button" (click)="onClick()">
+          <div class="container">
+            <mat-icon svgIcon="newspaper" class="mat-icon"></mat-icon>
+            <a class="sidenav-text">Scripts</a>
+          </div>
         </button>
 
-        <button mat-button routerLink="/greats" class="nav-button">
-          <a class="sidenav-text">Lists</a>
+        <button mat-button routerLink="/films" class="nav-button" (click)="onClick()">
+          <div class="container">
+            <mat-icon svgIcon="film" class="mat-icon"></mat-icon>
+            <a class="sidenav-text">Films</a>
+          </div>
         </button>
 
-        <button mat-button routerLink="/about" class="nav-button">
-          <a class="sidenav-text">About</a>
+        <button mat-button routerLink="/lists" class="nav-button" (click)="onClick()">
+          <div class="container">
+            <mat-icon svgIcon="format-list-numbers" class="mat-icon"></mat-icon>
+            <a class="sidenav-text">Lists</a>
+          </div>
         </button>
+        
+        <div class="bottom-nav-container">
+            <a>About </a>
+            <a>Contact Us</a>
+            <a> Careers</a>
+
+        </div>
+
     </mat-list>
   </mat-sidenav>
 
-  <mat-sidenav-content  class="sidenav-content" style="background-color: #f7f1de;">
+  <mat-sidenav-content  class="sidenav-content" style="background-color: #F5F5F5;">
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

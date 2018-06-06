@@ -4,6 +4,11 @@
   background-repeat: no-repeat;
   background-position: center center;
   height: 500px;
+  cursor: pointer;
+}
+.welcome-header{
+  display: flex;
+  flex-direction: column;
 }
 .film-title{
   position:absolute;
@@ -11,4 +16,13 @@
   right:0;
   color: #dee4ed;
   padding: 10px 10px 10px 10px;
+}
+.header-text{
+  font-size: 3em;
+  color: #000000;
+}
+@media only screen and (max-width: 600px) {
+  .mat-card-welcome{
+    height: 200px;
+  }
 }

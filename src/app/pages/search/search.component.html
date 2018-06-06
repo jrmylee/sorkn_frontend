@@ -1,0 +1,30 @@
+<div class="search-form">
+    <mat-card style="background-color: #d8d8d8;border-radius: 10px;">
+        <form class="search-form" #f="ngForm">
+            <mat-form-field
+            class="search-field"
+            >
+              <span matPrefix>
+                <mat-icon svgIcon="magnify" style="vertical-align: middle;"></mat-icon>
+                 &nbsp;
+               </span>
+    
+              <span style="display:block;
+              width:100%;box-sizing:border-box;;">
+                <input matInput placeholder="Search Movies"
+                name="search_value" (keyup)="searchTerm.next($event.target.value)"
+                 ngModel autocomplete="off" style="width:100%;box-sizing:border-box">
+              </span>
+            </mat-form-field>
+          </form>
+        </mat-card>
+
+        <div *ngFor="let result of results; let i = index">
+          <mat-card *ngIf="i<5" class="search-result-card" (click)="clickSuggestion(result)" #searchCard>
+            <mat-card-header>
+              <p style="position: absolute; left: 5; top: 0;">{{result.title}}({{result.release_date}})</p>
+            </mat-card-header>
+          </mat-card>
+        </div>
+    
+</div>

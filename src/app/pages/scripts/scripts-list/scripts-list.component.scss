@@ -2,12 +2,18 @@
   cursor: pointer;
 }
 .fab_button{
-  // margin-bottom: -50%;
-  transform: translate(100%, 0%);
+  // transform: translate(100%, 0%);
+  position:absolute;
+  right: 0;
+  top: 0;
+
 }
 .mat-card{
-  width: 80%;
+  flex: 0 1 80%;
   height: stretch;
+  margin-top: 1em;
+  background-color: white;
+
 }
 .container{
   display: flex;
@@ -15,4 +21,44 @@
   flex-wrap: wrap;
   justify-content: center;
 
+}
+.scripts-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+
+}
+.explore-container{
+  flex: 0 1 80%;
+  margin-top: 1em;
+  display: flex;
+
+}
+.header{
+}
+.my-scripts{
+  flex: 0 1 80%;
+  margin-top: 1em;
+  height: 500px;
+}
+
+.script-card{
+  flex: 0 1 200px;
+  height: 300px;
+  cursor: pointer;
+  margin-left: 1em;
+
+}
+.add-button{
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.avatar-image{
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }

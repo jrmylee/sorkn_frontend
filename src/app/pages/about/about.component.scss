@@ -1,6 +1,28 @@
 .about-card{
-  width: 40%;
+  flex: 0 1 80%;
+  margin-top: 1em;
+  height: 300px;
+  background-color: #59e0f8;
 
+}
+.about-card-2{
+  flex: 0 1 80%;
+  height: 500px;
+  margin-top: 1em;
+  background-color: #f7f1de;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.h1-text{
+  color: rgb(255, 255, 255);
+  font-size: 5em;
+  text-align: center;
+}
+.sub-text{
+  color:black;
+  font-size: 5em;
+  text-align: center;
 }
 .container{
   display: flex;

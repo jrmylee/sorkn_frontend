@@ -1,33 +1,35 @@
-<mat-card class="mat-card">
-  <h1>Create Script</h1>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <mat-form-field class="half-width">
-      <input matInput
-      placeholder="Name"
-      class="form-control"
-      value="Ex: Blade Runner"
-      ngModel
-      name="title">
-    </mat-form-field>
+<div class="container">
+  <mat-card class="mat-card">
+    <h1>Create Script</h1>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <mat-form-field class="half-width">
+        <input matInput
+        placeholder="Name"
+        class="form-control"
+        value="Ex: Blade Runner"
+        ngModel
+        name="title">
+      </mat-form-field>
 
-    <mat-form-field class="half-width">
-      <mat-select placeholder="Privacy">
-        <mat-option value="Private">Private</mat-option>
-        <mat-option value="Private">Public</mat-option>
+      <mat-form-field class="half-width">
+        <mat-select placeholder="Privacy">
+          <mat-option value="Private">Private</mat-option>
+          <mat-option value="Private">Public</mat-option>
 
-      </mat-select>
-    </mat-form-field>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field class="full-width">
-      <textarea matInput
-      placeholder="Script"
-      value=""
-      style="height:500px;"
-      ngModel
-      name="script"></textarea>
-    </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea matInput
+        placeholder="Script"
+        value=""
+        style="height:500px;"
+        ngModel
+        name="script"></textarea>
+      </mat-form-field>
 
-    <button mat-raised-button type="submit">Submit</button>
-  </form>
+      <button mat-raised-button type="submit">Submit</button>
+    </form>
 
-</mat-card>
+  </mat-card>  
+</div>

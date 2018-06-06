@@ -6,9 +6,15 @@
   display: inline-block;
 }
 .mat-card{
-  width: 40%;
-  position:relative;
-  top: 30%;
-  left: 30%;
-  margin-top: 3em;
+  flex: 0 1 80%;
+  margin-top: 1em;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mat-card{
+  background-color: #E0E0E0;
 }

@@ -19,18 +19,23 @@ export class ScriptsListComponent implements OnInit {
   scripts : Script[];
   loaded: boolean = false;
   dataSource: MatTableDataSource<Script>;
+  isLoggedIn : boolean;
   ngOnInit() {
-    this.scriptService.getScripts().subscribe(
-      (arr)=>{
-        this.scripts = arr;
-        this.loaded = true;
-        console.log("Got!");
-        this.dataSource = new MatTableDataSource<Script>(this.scripts);
+    this.authService.isLoggedin.subscribe(
+      (val)=>{
+        this.isLoggedIn = val;
       }
-    , (err)=>{console.log(err)});
-  }
-  displayedColumns = ['name', 'description'];
+    );
+    if(this.isLoggedIn){
+      this.scriptService.getScripts().subscribe(
+        (arr)=>{
+          this.scripts = arr;
+          this.loaded = true;
+        }
+      , (err)=>{console.log(err)});
+    }
 
+  }
 
 
   onNewScript(){

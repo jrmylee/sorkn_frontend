@@ -34,6 +34,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "material": "^0.2.6",
+    "movie-info": "^2.0.4",
     "ng-material-floating-button": "^0.6.2",
     "ng2-float-btn": "0.0.3",
     "rxjs": "^5.5.6",

@@ -19,11 +19,9 @@ export class ScriptService{
     return this.serverService.getScripts();
   }
 
-  getScript(index){
+  getScript(id: string){
     this.serverService.getScripts().subscribe((arr)=>{
-      this.scripts = arr;
-      return this.scripts[index];
-
+      return arr.find(i => i._id == id)
     },(err)=>{console.log(err)});
   }
 

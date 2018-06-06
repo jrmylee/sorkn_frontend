@@ -22,22 +22,25 @@ import {trigger, state, style, transition, animate, keyframes} from '@angular/an
   ]
 })
 export class ScriptsDetailComponent implements OnInit {
-  id: number;
   script: Script;
   state: string = 'small';
-  loaded: boolean = false;
+  loaded: boolean ;
 
   constructor(private scriptService: ScriptService, private route: ActivatedRoute,
-  private router: Router) { }
-
-  ngOnInit() {
-    this.route.params.subscribe((params:Params) => {
-      this.id = +params['id'];
+  private router: Router) {
+    route.params.subscribe( (params:Params)=>{
+      let id = params['id'];
       this.scriptService.getScripts().subscribe((arr)=>{
-        this.script = arr[this.id];
+        this.script = arr.find(i => i._id == id);
         this.loaded = true;
       }, (err)=>{console.log(err)});
-    });
+
+    }, (err)=>{console.log(err)});
+  }
+
+
+  ngOnInit() {
+
   }
   onEditScript(){
     this.router.navigate(['edit'], {relativeTo: this.route});

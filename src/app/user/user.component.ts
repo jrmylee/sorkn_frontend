@@ -22,6 +22,7 @@ export class UserComponent implements OnInit {
       this.serverService.getCurrentUser().subscribe(
         (user)=>{
           this.currentUser = user;
+          console.log(this.currentUser);
           this.loaded = true;
         },
         (err)=>{console.log(err)});
