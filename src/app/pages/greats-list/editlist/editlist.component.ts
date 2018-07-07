@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChildren, ViewChild,ChangeDetectorRef } from '@angular/core';
 import {SearchComponent} from '../../search/search.component';
 import { SearchService } from '../../../nav/header/search.service';
-import { Router } from '@angular/router';
+import { Router, Params, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Film } from '../../../models/film.model';
 import { GreatsList } from '../../../models/list.model';
@@ -13,11 +13,12 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-newlist',
-  templateUrl: './newlist.component.html',
-  styleUrls: ['./newlist.component.scss']
+  selector: 'app-editlist',
+  templateUrl: './editlist.component.html',
+  styleUrls: ['./editlist.component.scss']
 })
-export class NewlistComponent implements OnInit {
+export class EditlistComponent implements OnInit {
+  list: GreatsList;
   myForm: FormGroup;
   isLoggedIn: boolean;
   isDesktop: boolean = true;
@@ -26,12 +27,20 @@ export class NewlistComponent implements OnInit {
   films: Film[] = [];
   displayedColumns = ['title', 'year'];
   dataSource = new MatTableDataSource(this.films);
-
+  id: string="";
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   greatslist: GreatsList;
-  constructor( private searchService: SearchService, private router: Router, private listService: GreatsListService) {
+  constructor( private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute,private listService: GreatsListService) {
+    this.activatedRoute.params.subscribe( (params:Params)=>{
+      this.id = params['id'];
+      listService.getList(this.id).subscribe(res=>{
+        this.list = res;
+        this.films = this.list.films;
+        this.dataSource = this.dataSource = new MatTableDataSource(this.films);
+      });
 
+    }, (err)=>{console.log(err)});
     this.searchService.search(this.searchTerm).subscribe(results => {
       if(results.results != null){
         this.results = results.results;
@@ -48,15 +57,14 @@ export class NewlistComponent implements OnInit {
     this.films.push(film);
     this.dataSource = new MatTableDataSource(this.films);
   }
-  onSubmit(form: NgForm){
-    const value = form.value;
+  onSubmit(){
     this.greatslist =  {
-      name: value.title,
+      name: this.list.name,
       films: this.films,
       username: "",
       _id: ""
     };
-    this.listService.addList(this.greatslist).subscribe(obj=>{
+    this.listService.patchList(this.id, this.greatslist).subscribe(obj=>{
       this.router.navigate(["/lists"]);
     });
   }

@@ -3,9 +3,21 @@
         
     </mat-card>
     <mat-card class="list-card">
-        <h1>{{list.name}}</h1>
-  
-      <mat-card-subtitle class="text">By {{list.username}}</mat-card-subtitle>
+      <h1>{{list.name}}</h1>
+
+      <div class="buttons">
+        <button mat-icon-button (click)="deleteList(list._id)" *ngIf="myList">
+          <mat-icon class="delete-button" svgIcon="delete"></mat-icon>
+        </button>
+        <button mat-fab class="fab-button" [routerLink]='["/editlist",list._id]' *ngIf="myList">
+          <mat-icon svgIcon="pencil"></mat-icon>
+        </button>
+      </div>
+      <mat-card-subtitle class="text">
+        <div [routerLink]="['/u', list.username]" style="cursor: pointer;">
+            By {{list.username}}
+        </div>
+      </mat-card-subtitle>
       <div class="lists-container">
           <mat-card *ngFor="let film of list.films" class="poster-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(film) + ')'}" [routerLink]='["/f", film.id]'>
           </mat-card>

@@ -2,68 +2,87 @@
   <div class="create-list-container">
     <h1 class="header">Create List</h1>
     <div class="list-container">
-      <mat-card class="details-card">
-          <div class="form-container">
-            <form (ngSubmit)="onSubmit(h)" #h="ngForm">
-              <mat-form-field class="half-width">
-                <input matInput
-                placeholder="Name"
-                class="form-control"
-                value="Ex: Blade Runner"
-                ngModel
-                name="title">
-              </mat-form-field>
-        
-              <mat-form-field class="full-width">
-                <input matInput
-                placeholder="Description"
-                value=""
-                ngModel
-                name="script">
-              </mat-form-field>
-        
-              <button mat-fab type="submit" class="submit-button">
-                  <mat-icon svgIcon="check"></mat-icon>
-              </button>
-            </form>
-          </div>       
-      </mat-card>
-
-      <mat-card class="list-card">
-        <div class="search-form">
-          <form class="search-form" #f="ngForm">
-            <mat-form-field class="search-field">
-              <span matPrefix>
-                <mat-icon svgIcon="magnify" style="vertical-align: middle;"></mat-icon>
-                  &nbsp;
-                </span>
+      <div class="left-container">
+          <mat-card class="details-card">
+              <div class="form-container">
+                <form (ngSubmit)="onSubmit(h)" #h="ngForm">
+                  <mat-form-field class="half-width">
+                    <input matInput
+                    placeholder="Name"
+                    class="form-control"
+                    value="Ex: Blade Runner"
+                    ngModel
+                    name="title"
+                    autocomplete="off">
+                  </mat-form-field>
+            
+                  <mat-form-field class="full-width">
+                    <input matInput
+                    placeholder="Description"
+                    value=""
+                    ngModel
+                    name="Description"
+                    autocomplete="off">
+                  </mat-form-field>
+            
+                  <button mat-raised-button type="submit" class="submit-button">
+                      <mat-icon svgIcon="check"></mat-icon>
+                  </button>
+                </form>
+              </div>       
+          </mat-card>
     
-              <span style="display:block; width:100%;box-sizing:border-box;;">
-                <input matInput placeholder="Add Film" name="search_value" (keyup)="searchTerm.next($event.target.value)" ngModel autocomplete="off" style="width:100%;box-sizing:border-box">
-              </span>
-            </mat-form-field>
-          </form>
-
-            <div style="margin-top: 5em;">
-              <div *ngFor="let result of results; let i = index">
-                <mat-card *ngIf="i<5" class="search-result-card" (click)="clickSuggestion(result)" #searchCard>
-                  <mat-card-header>
-                        <mat-icon svgIcon="plus" class="mat-icon" class="add-button"></mat-icon>
-                    <p style="position: absolute; left: 5; top: 0;">{{result.title}}({{result.release_date}})</p>
-                  </mat-card-header>
-                </mat-card>
-              </div>
+          <mat-card class="list-card">
+            <div class="search-form">
+              <form class="search-form" #f="ngForm">
+                <mat-form-field class="search-field">
+                  <span matPrefix>
+                    <mat-icon svgIcon="magnify" style="vertical-align: middle;"></mat-icon>
+                      &nbsp;
+                    </span>
+        
+                  <span style="display:block; width:100%;box-sizing:border-box;;">
+                    <input matInput placeholder="Add Film" name="search_value" (keyup)="searchTerm.next($event.target.value)" ngModel autocomplete="off" style="width:100%;box-sizing:border-box">
+                  </span>
+                </mat-form-field>
+              </form>
+    
+                <div style="margin-top: 3em;">
+                  <div *ngFor="let result of results; let i = index">
+                    <mat-card *ngIf="i<3" class="search-result-card" (click)="clickSuggestion(result)" #searchCard>
+                      <mat-card-header>
+                            <mat-icon svgIcon="plus" class="mat-icon" class="add-button"></mat-icon>
+                        <p style="position: absolute; left: 5; top: 0;">{{result.title}}({{result.release_date}})</p>
+                      </mat-card-header>
+                    </mat-card>
+                  </div>
+                </div>
             </div>
+          </mat-card>    
+      </div>
+      
+      <mat-card class="list-results-card">
+        <div class="table-container">
+          <mat-table #table [dataSource]="dataSource">
 
-            <mat-card *ngFor="let film of films" class="search-result-card" (click)="clickSuggestion(result)" #searchCard>
-              <mat-card-header>
-                    <mat-icon svgIcon="plus" class="mat-icon" class="add-button"></mat-icon>
-                <p style="position: absolute; left: 5; top: 0;">{{film.title}}({{film.release_date}})</p>
-              </mat-card-header>
-            </mat-card>
-
+            <!-- Position Column -->
+            <ng-container matColumnDef="title">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let film"> {{film.title}} </mat-cell>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="year">
+              <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+              <mat-cell *matCellDef="let film"> {{film.release_date}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
         </div>
       </mat-card>
+
     </div>
   </div>
   

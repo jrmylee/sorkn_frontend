@@ -1,10 +1,39 @@
-.mat-card-trending{
-  background-color: #E0E0E0;
+.container{
+  display:flex;
+  flex-direction: row;
+  overflow-x: auto;
 }
+.mat-card-lists{
+
+}
+.list{
+  display: flex;
+  flex: 0 0 350px;
+}
+.list-card{
+  height: 200px;
+  flex: 0 0 350px;
+  display:flex;
+  flex-direction: column;
+  cursor: pointer;
+  .list-home-card{
+    margin-right: 10px;
+    flex: 0 1 150px;
+    width: 300px;
+    background-image: url('https://theultralinx.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTI5MDI0MjYyNDA0MjM5MzMw/materialdesign4.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+}
+
 .logo-tmdb{
   position:absolute;
   bottom:0;
   right:0;
   width: 3em; height:3em;
   margin: .5em .5em .5em .5em;
+}
+.list-name{
+  margin:auto;
 }

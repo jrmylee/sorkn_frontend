@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup,NgForm } from '@angular/forms';
 import {ActivatedRoute, Params,Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
-import {User} from '../../shared/user.model';
+import {User} from '../../models/user.model';
 
 import {AuthService} from '../auth.service';
 @Component({

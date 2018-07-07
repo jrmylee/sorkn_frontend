@@ -4,7 +4,22 @@
       
   </mat-card>
   <mat-card class="film-card">
-      <h1>{{film.title}}</h1>
+    <h1 class="header-film">
+        {{film.title}} 
+        <mat-icon *ngIf="script"
+         svgIcon="checkbox-marked"
+         style="color:green"
+         matTooltip="Script Available! Scroll down"
+         matTooltipPosition="below"
+         ></mat-icon>
+        <mat-icon *ngIf="!script" 
+        svgIcon="minus-circle" 
+        style="color:red;"
+        matTooltip="No Script Available"
+        matTooltipPosition="below"
+        ></mat-icon>
+
+    </h1>
 
     <mat-card-subtitle class="text"><p>{{film.release_date}}</p></mat-card-subtitle>
     <mat-card-content>
@@ -16,7 +31,7 @@
 
   </mat-card>
 
-  <mat-card class="film-card">
+  <!-- <mat-card class="film-card">
 
       <h1>
           Reviews
@@ -73,5 +88,10 @@
           </mat-tab>
   
           </mat-tab-group>
-  </mat-card>
+  </mat-card> -->
+    <div class="script-card" *ngIf="script">
+        <div class="script">
+            {{script}}
+        </div>
+    </div>
 </div>

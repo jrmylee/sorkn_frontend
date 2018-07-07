@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {User} from '../shared/user.model';
+import {User} from '../models/user.model';
 import {Script} from '../pages/scripts/script_model';
 
 import {TokenService} from './token.service';
@@ -24,8 +24,6 @@ export class AuthService implements OnInit{
   }
 
   registerUser(user: User){
-    console.log(JSON.parse(JSON.stringify(user)));
-
     return this.http.post(this.restAPILink + 'users', user, {observe: 'response', responseType: 'text'});
   }
 

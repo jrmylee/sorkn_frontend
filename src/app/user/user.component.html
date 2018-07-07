@@ -1,17 +1,34 @@
 
 <div class="container">
-  <mat-card *ngIf="loaded" class="user-card">
+  <div *ngIf="currentUser" class="user-card">
     <mat-card-header>
       <div mat-card-avatar class="profile-image"></div>
       <mat-card-title>{{currentUser.name}}</mat-card-title>
       <mat-card-subtitle>@{{currentUser.username}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        Enter a profile description
-      </p>
     </mat-card-content>
-
-  </mat-card>
-
+  </div>
+  <mat-tab-group class="tab-groups">
+    <mat-tab label="Lists">
+      <div class="lists-container" *ngIf="lists">
+        <mat-card class="list-card" *ngFor="let list of lists" [routerLink]='["/l", list._id]'>
+          <h2>{{list.name}}</h2>
+          <div class="films-container">
+            <mat-card *ngFor="let film of list.films" class="poster-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(film) + ')'}" [routerLink]='["/f", film.id]'>
+            </mat-card>
+          </div>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Scripts">
+      <div class="scripts-container" *ngIf="scripts">
+          <mat-card *ngFor="let script of scripts">
+            <h1>{{script.name}}</h1>
+          </mat-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="Likes"> Content 3 </mat-tab>
+  </mat-tab-group>
+    
 </div>

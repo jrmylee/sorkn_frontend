@@ -1,35 +1,47 @@
 <div class="container">
-  <mat-card class="mat-card">
-    <h1>Create Script</h1>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-      <mat-form-field class="half-width">
-        <input matInput
-        placeholder="Name"
-        class="form-control"
-        value="Ex: Blade Runner"
-        ngModel
-        name="title">
-      </mat-form-field>
-
-      <mat-form-field class="half-width">
-        <mat-select placeholder="Privacy">
-          <mat-option value="Private">Private</mat-option>
-          <mat-option value="Private">Public</mat-option>
-
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <textarea matInput
-        placeholder="Script"
-        value=""
-        style="height:500px;"
-        ngModel
-        name="script"></textarea>
-      </mat-form-field>
-
-      <button mat-raised-button type="submit">Submit</button>
-    </form>
-
-  </mat-card>  
+  <mat-tab-group class="tabs">
+    <mat-tab label="Fountain">
+      <div class="new-script-card">
+          <h1>Enter Fountain Script</h1>
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <mat-form-field class="half-width">
+              <input matInput
+              placeholder="Name"
+              class="form-control"
+              value="Ex: Blade Runner"
+              ngModel
+              name="title"
+              autocomplete="off">
+            </mat-form-field>
+      
+            <mat-form-field class="half-width">
+              <mat-select [(ngModel)]="privacy" placeholder="Privacy" [ngModelOptions]="{standalone: true}">
+                <mat-option value="Private">Private</mat-option>
+                <mat-option value="Public">Public</mat-option>
+      
+              </mat-select>
+            </mat-form-field>
+      
+            <mat-form-field class="full-width">
+              <textarea matInput
+              placeholder="Script"
+              value=""
+              style="height:500px;"
+              ngModel
+              name="script"></textarea>
+            </mat-form-field>
+            <button mat-raised-button type="submit" class="submit">Submit</button>
+          </form>
+        </div>  
+      </mat-tab>
+      <mat-tab label="Upload(WIP)">
+          <div class="new-script-card">
+              <h1>Upload Script</h1>
+              <mat-card class="chooser-button"><h3>Choose file(PDF)</h3></mat-card>
+              <button mat-raised-button type="submit" class="submit">Submit</button>
+            </div>  
+      </mat-tab>
+    </mat-tab-group>
+    
+ 
 </div>

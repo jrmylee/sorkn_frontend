@@ -23,32 +23,59 @@
 
 }
 .scripts-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display:flex; 
+  flex-direction: row; 
+  overflow-x:auto;
+  overflow-y: hidden;
+  white-space: nowrap;
   justify-content: left;
-
+  min-height:350px;
+}
+.button-left{
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 40%;
+}
+.button-right{
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  width: 40%;
+}
+.full-div{
+  width:100%;
+  height:100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 .explore-container{
   flex: 0 1 80%;
-  margin-top: 1em;
   display: flex;
-
 }
 .header{
 }
 .my-scripts{
-  flex: 0 1 80%;
+  flex: 0 1 100%;
   margin-top: 1em;
   height: 500px;
+  max-width: 100%;
 }
-
+.classic-title{
+  color:rgba(255, 255, 255, 0.911);
+}
 .script-card{
+  white-space: normal;
   flex: 0 1 200px;
-  height: 300px;
+  min-width: 200px;
+  border-radius:20px;
+  height: 200px;
   cursor: pointer;
   margin-left: 1em;
-
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 .add-button{
   position: relative;

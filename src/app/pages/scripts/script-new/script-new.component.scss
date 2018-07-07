@@ -1,12 +1,16 @@
 .full-width{
   width:100%;
 }
+.tabs{
+  flex: 0 1 60%;
+}
 .half-width{
   width:49%;
   display: inline-block;
 }
-.mat-card{
+.new-script-card{
   flex: 0 1 80%;
+  min-width: 80%;
   margin-top: 1em;
 }
 .container{
@@ -15,6 +19,15 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.mat-card{
-  background-color: #E0E0E0;
+.submit{
+  background-color: #4FC3F7;
+  width:100%;
+}
+.chooser-button{
+  width:90%;
+  text-align: center;
+  height: 300px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  background-color: #999999;
 }

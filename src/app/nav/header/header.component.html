@@ -4,8 +4,8 @@
     <mat-icon svgIcon="menu"></mat-icon>
   </button>
 
-  <button mat-button routerLink="/explore">
-    <h2 class="mat-title">Sorkn Beta</h2>
+  <button mat-icon-button routerLink="/explore" class="logo-button">
+    <img src="favicon.ico" style="width: 40px;height: 40px;">
   </button>
 
   <button mat-icon-button class="search-menu"
@@ -14,8 +14,7 @@
   </button>
 
   <div class="icon">
-      <button mat-icon-button class="mat-elevation-z1"
-      style="background-color: #4FC3F7;"
+      <button mat-icon-button 
       *ngIf="isLoggedIn"
       [matMenuTriggerFor]="addMenu">
           <mat-icon svgIcon="plus"></mat-icon>
@@ -55,7 +54,7 @@
 </mat-toolbar>
 
   <div class="search-form" *ngIf="!checkMobile()">
-    <mat-card style="background-color: #ECEFF1;border-radius: 10px;">
+    <mat-card style="background-color: white;border-radius: 10px;">
       <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
           <mat-form-field
           class="search-field"

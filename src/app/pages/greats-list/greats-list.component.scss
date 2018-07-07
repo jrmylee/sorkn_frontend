@@ -1,6 +1,5 @@
 .list-card{
-  background-color: rgb(255, 255, 255);
-  flex: 0 1 50em;
+  flex: 0 1 80%;
   height:250px;
   margin-top: 1em;
   cursor: pointer;
@@ -14,13 +13,47 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.my-lists{
-  flex: 0 1 80%;
+.explore-lists{
+  flex: 0 1 50%;
   margin-top: 1em;
-  height: 500px;
-}
-.lists-container{
   display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  border-radius: 20px;
+
+}
+.my-lists{
+  flex: 0 1 30%;
+  height: 300px;
+  margin-top: 1em;
+  margin-left:1em;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  border-radius: 20px;
+}
+.films-container{
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  .poster-card{
+    display: inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 72px;
+    height:108px;
+    margin: 5px 5px 5px 5px;
+  }
+}
+.table-container{
+  max-height: 250px;
+  overflow-y: auto;
+
 }
 .add-button{
   position: relative;
@@ -34,11 +67,38 @@
   background-image: url('https://www.serviceseeking.com.au/assets/business_profile/default-profile-pic.svg');
   background-size: cover;
 }
-.poster-card{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 72px;
-  height:108px;
-  margin: 5px 5px 5px 5px;
+:host::-webkit-scrollbar              {
+  background-color: #ECEFF1;
+}
+@media only screen and (max-width: 1024px) {
+  .container{
+      display:flex;
+      flex-direction: column;
+  }
+  .my-lists{
+    margin-left: 0;
+  }
+}
+.square,
+.circle {
+  pointer-events: none;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin: 1px;
+  background-color: #8cb8ff;
+  font-size: 12px;
+}
+.circle {
+  border-radius: 50%;
+}
+.follow-path {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+}
+.motion-path {
+  position: relative;
+  width: 256px;
+  margin: auto;
 }

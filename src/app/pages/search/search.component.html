@@ -1,5 +1,5 @@
 <div class="search-form">
-    <mat-card style="background-color: #d8d8d8;border-radius: 10px;">
+    <div>
         <form class="search-form" #f="ngForm">
             <mat-form-field
             class="search-field"
@@ -17,7 +17,7 @@
               </span>
             </mat-form-field>
           </form>
-        </mat-card>
+        </div>
 
         <div *ngFor="let result of results; let i = index">
           <mat-card *ngIf="i<5" class="search-result-card" (click)="clickSuggestion(result)" #searchCard>

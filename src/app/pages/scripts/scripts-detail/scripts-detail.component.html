@@ -1,8 +1,7 @@
 
 <div class="container">
-  <mat-card class="script-card" *ngIf="loaded">
+  <div class="script-card" *ngIf="script">
+    <div class="script-details" [innerHtml]="myTemplate">
 
-    <h1 class="text">{{script.name}}</h1>
-    <p class="text">{{script.script}}</p>
-  </mat-card>
-</div>
+    </div>
+  </div>

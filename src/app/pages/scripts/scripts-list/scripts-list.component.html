@@ -1,48 +1,50 @@
   <div class="container">
-
+    <div class="my-scripts">
+      <h1>Classic Screenplays</h1>
+      <div class="scripts-container">
+       <mat-card class="script-card" *ngFor="let classic of classicsList" [ngStyle]="{'background-image': 'url(' + classic.image + ')'}" (click)="clickScript(classic)">
+          <h1 class="classic-title">{{classic.title}}</h1>
+      </mat-card>
+      </div>
+    </div>
     <div class="my-scripts" *ngIf="isLoggedIn">
         <router-outlet></router-outlet>
           <h1>My Scripts</h1>
           <div div class="scripts-container">
-             <mat-card class="script-card" *ngFor="let script of scripts" [routerLink]='["/s",script._id]'>
-              <mat-card-header>
-                  <div mat-card-avatar class="avatar-image"></div>
-                  <mat-card-title>{{script.name}}</mat-card-title>
-                  <mat-card-subtitle>By Anon</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                  <p>
-                    Love is the only thing that transcends time and space.
-                  </p>
-                </mat-card-content>
+              <mat-card class="script-card" *ngFor="let script of scripts$ | async">
+                <div [routerLink]='["/s",script._id]' [queryParams]="{ self: true }">
+                  <mat-card-header>
+                      <div mat-card-avatar class="avatar-image"></div>
+                      <mat-card-title>{{script.name}}</mat-card-title>
+                      <mat-card-subtitle>By {{script.username}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                    </mat-card-content>
+                </div>
                 <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
+                  <button class="button-right" mat-button [routerLink]='["/editscript",script._id]'>Edit</button>
+                  <button class="button-left" mat-button (click)="deleteScript(script._id)">Delete</button>
                 </mat-card-actions>
-           </mat-card>
+            </mat-card>
           </div>
-    </div>
-    <div class="my-scripts">
-      <h1 class="header">Popular Screenplays</h1>
-      <div class="scripts-container">
-          <mat-card class="script-card">
-              <mat-card-header>
-              <div mat-card-avatar class="avatar-image"></div>
-              <mat-card-title>Script Test</mat-card-title>
-              <mat-card-subtitle>By Chris Nolan</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <p>
-                Love is the only thing that transcends time and space.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
       </div>
-        
-    </div>
+      <div class="my-scripts">
+        <h1 class="header">Recently Posted</h1>
+        <div class="scripts-container">
+            <mat-card class="script-card" *ngFor="let script of publicScripts$ | async" 
+            [routerLink]='["/s",script._id]' [queryParams]="{ self: false }">
+              <mat-card-header>
+                <div mat-card-avatar class="avatar-image"></div>
+                <mat-card-title>{{script.name}}</mat-card-title>
+                <mat-card-subtitle>By {{script.username}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+              </mat-card-content>
+              <mat-card-actions>
+              </mat-card-actions>
+            </mat-card>
+        </div>
+          
+      </div>
 
   </div>

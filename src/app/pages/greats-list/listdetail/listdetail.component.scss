@@ -3,7 +3,14 @@
     max-width: 50%;  
     background-color: white;
   }
-  
+  .fab-button{
+    background-color: orangered;
+  }
+  .buttons{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
   .film-title{
     font-size:2em;
   }
@@ -28,13 +35,31 @@
   }
   .lists-container{
     display: flex;
+    flex-flow:row wrap
   }
 
   .poster-card{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    min-width: 72px;
     width: 72px;
     height:108px;
     margin: 5px 5px 5px 5px;
+  }
+  @media only screen and (max-width: 600px) {
+    .list-card{
+      flex: 0 1 95%;
+      max-width: 95%;
+    }
+  
+    .background-card{
+      flex: 0 1 95%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+      height: 150px;
+      border-radius: 10px;
+      margin-top: 5px;
+    }
   }

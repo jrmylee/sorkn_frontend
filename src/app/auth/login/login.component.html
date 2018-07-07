@@ -1,4 +1,4 @@
-<mat-card class="mat-card-log">
+<div class="mat-card-log">
   <h1>Login</h1>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="full-width">
@@ -19,11 +19,14 @@
       </mat-form-field>
 
     </div>
-    <button mat-raised-button type="submit" class="submit-button">Submit</button>
+    <button mat-raised-button 
+    type="submit" 
+    class="submit-button"
+    style="background-color: rgb(68, 199, 223);">Submit</button>
     <button mat-raised-button class="submit-button"
      [routerLink]="['/register']"
-     style="background-color:#4FC3F7;   display: inline-block;
+     style="background-color:white;   display: inline-block;
   ">Register</button>
   </form>
 
-</mat-card>
+</div>

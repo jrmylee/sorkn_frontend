@@ -1,10 +1,11 @@
 import {Subject} from 'rxjs/Subject';
-import {Film} from '../../shared/film.model';
-import {GreatsList} from '../../shared/list.model';
+import {Film} from '../../models/film.model';
+import {GreatsList} from '../../models/list.model';
 import {ServerService} from '../../auth/server.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs';
+import { User } from '../../models/user.model';
 
 @Injectable()
 export class GreatsListService {
@@ -21,16 +22,31 @@ export class GreatsListService {
   getLists(){
     return this.server.getLists();
   }
-  onClick(){
-    console.log("zoop!");
+  
+  getMyLists(){
+    return this.server.getMyLists();
   }
+  
   addList(list: GreatsList){
-    this.server.addList(list);
+    return this.server.addList(list);
+  }
+
+  deleteList(id: string){
+    return this.server.deleteList(id);
+  }
+  patchList(id: string, list: GreatsList){
+    return this.server.patchList(id, list);
   }
   getList(id: string): Observable<GreatsList>{
     return this.server.getList(id);
   }
   getBackdrop(film: Film){
     return ("http://image.tmdb.org/t/p/original/" + film.poster_path);
+  }
+  getBackground(film: Film){
+    return ("http://image.tmdb.org/t/p/original/" + film.backdrop_path);
+  }
+  getCurrentUser(): Observable<User>{
+    return this.server.getCurrentUser();
   }
 }

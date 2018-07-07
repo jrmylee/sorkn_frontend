@@ -1,25 +1,139 @@
-.container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+@media only screen and (min-width: 1024px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center ;
+    min-width: 8.5in;
+  
+  }
+  :host ::ng-deep div.dialogue h2{
+    display:inline-block; 
+    margin-left: 160px;
+    font-weight: normal; 
+  }
+  :host ::ng-deep h2{
+    text-align: right;
+    font-weight: normal;
+  }
+  :host ::ng-deep h3{
+    font-weight: normal;
+  }
+  :host ::ng-deep h4{
+    display:inline-block; 
+    font-weight: normal;
+    margin-left: 2.2in; 
+  }
+  :host ::ng-deep .parenthetical{
+    display:inline-block; 
+    font-weight: normal;
+    margin-left: 1.6in; 
+  }
+  :host ::ng-deep .dialogue{
+    display:flex;
+    flex-direction: column; 
+    font-weight: normal;
+  }
+  :host ::ng-deep .dual-dialogue{
+    display:flex;
+  }
+  :host ::ng-deep div.dialogue p{
+    display:inline-block; 
+    margin-left: 1.5in; 
+    font-weight: normal;
+  }
+  :host ::ng-deep .centered{
+    text-align: center;
+  }
+  .title-card{
+    flex: 0 1 400px;
+    width:50%;
+  }
+  .script-card{
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    margin-top: 1em;
+  }
+  .icon{
+    float: right;
+  }
+  .text{
+    text-align:left;
+    white-space: pre-wrap;
+  }
+  .dialogue{
+    font-size: 20px;
+  }
+  .script-details, .title-card{
+    font-family: 'Courier', arial;
+    font-size: 12pt;
+    font-variant: normal;
+    font-weight: 400;
+    margin-left:1.5in;
+    margin-right:1in;
+    margin-top:1in;
+    margin-bottom:1in;
+  
+    min-width: 670px;
+    display: flex;
+    flex-direction: column;
+  }
 }
-.script-card{
-  flex: 0 1 40%;
-  height:200em;
-  margin-top: 2em;
-}
-.icon{
-  float: right;
-}
-.text{
-  text-align:center;
-  white-space: pre-wrap;
-}
-@media only screen and (max-width: 1024px) {
+
+@media only screen and (max-width: 600px) {
   .script-card{
     flex: 0 1 95%;
     max-width: 95%;
     margin-top:1em;
+  }
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 100%;
+  }
+  :host ::ng-deep div.dialogue h2{
+    display:inline-block; 
+    margin-left: 0px;
+    font-weight: normal; 
+  }
+  :host ::ng-deep h2{
+    text-align: right;
+    font-weight: normal;
+  }
+  :host ::ng-deep h3{
+    font-weight: normal;
+  }
+  :host ::ng-deep h4{
+    display:inline-block; 
+    font-weight: normal;
+  }
+  :host ::ng-deep .parenthetical{
+    display:inline-block; 
+    font-weight: normal;
+  }
+  :host ::ng-deep .dialogue{
+    display:flex;
+    flex-direction: column; 
+    font-weight: normal;
+  }
+  :host ::ng-deep .dual-dialogue{
+    display:flex;
+  }
+  :host ::ng-deep div.dialogue p{
+    display:inline-block; 
+    font-weight: normal;
+  }
+  :host ::ng-deep .centered{
+    text-align: center;
+  }
+  .script-details, .title-card{
+    font-family: 'Courier', arial;
+    font-variant: normal;
+    flex: 0 1 95%;
+    margin-left:1em;
+    display: flex;
+    flex-direction: column;
   }
 }

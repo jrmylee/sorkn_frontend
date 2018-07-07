@@ -1,4 +1,4 @@
-import {User} from '../shared/user.model';
+import {User} from '../models/user.model';
 import {ServerService} from '../auth/server.service';
 import {AuthService} from '../auth/auth.service';
 
@@ -16,7 +16,13 @@ export class UserService implements OnInit{
   ngOnInit(){
 
   }
-  getUser(){
-    return this.serverService.getCurrentUser();
+  getUser(username: string){
+    return this.serverService.getUser(username);
+  }
+  getUserScripts(username: string){
+    return this.serverService.getScriptsByUser(username);
+  }
+  getUserLists(username: string){
+    return this.serverService.getListsByUser(username);
   }
 }

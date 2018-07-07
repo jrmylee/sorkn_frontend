@@ -27,6 +27,7 @@
     "@angular/router": "^5.1.2",
     "@material/fab": "^0.27.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
+    "angular-speed-dial": "^6.1.0",
     "angular2-jwt": "^0.2.3",
     "animejs": "^2.2.0",
     "bootstrap": "^3.3.7",

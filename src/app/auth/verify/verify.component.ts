@@ -18,13 +18,11 @@ export class VerifyComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params:Params) => {
-      console.log(params['URL']);
       this.authService.verifyUser(params['URL']).subscribe(
         (res)=>{
           this.processed = true;
           this.verified = true;
           this.message = res.body;
-          console.log(res);
         },(err)=>{
           this.processed = true;
           this.message = JSON.parse(err.error).msg;

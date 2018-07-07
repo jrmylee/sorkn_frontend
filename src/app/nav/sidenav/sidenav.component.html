@@ -42,7 +42,9 @@
     </mat-list>
   </mat-sidenav>
 
-  <mat-sidenav-content  class="sidenav-content" style="background-color: #F5F5F5;">
+  <mat-sidenav-content  class="sidenav-content">
+    <mat-progress-bar mode="indeterminate" *ngIf="loading" class="progress-bar"></mat-progress-bar>
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

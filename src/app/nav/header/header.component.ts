@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    if(window.screen.width < 1700){
+    if(window.screen.width < 900){
       this.isDesktop = false;
     }
     this.cdr.detectChanges();
@@ -68,10 +68,10 @@ export class HeaderComponent implements OnInit {
   }
   @HostListener('window:resize', ['$event'])
     onResize(event) {
-        if (event.target.innerWidth < 1700) {
+        if (event.target.innerWidth < 900) {
             this.isDesktop = false;
         }
-        if (event.target.innerWidth > 1700) {
+        if (event.target.innerWidth > 900) {
            this.isDesktop = true;
         }
     }

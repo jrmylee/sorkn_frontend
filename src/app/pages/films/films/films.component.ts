@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-films',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {
   }
 
+  onClick(){
+    this.document.location.href = 'https://vimeo.com/267553745';
+
+  }
 }

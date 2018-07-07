@@ -20,6 +20,7 @@
 }
 .trending{
   flex: 0 1 90%;
+  max-width:90%;
   margin-bottom: 1em;
 
 }
@@ -36,6 +37,7 @@
   .trending{
     flex: 0 1 95%;
     margin-bottom: 5px;
-  
+    max-width:95%;
+
   }
 }

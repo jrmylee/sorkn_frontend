@@ -21,14 +21,14 @@ import { ListdetailComponent } from './pages/greats-list/listdetail/listdetail.c
 import {ScriptService} from './pages/scripts/script.service';
 
 import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
+import { EditlistComponent } from './pages/greats-list/editlist/editlist.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/explore', pathMatch: 'full'},
   {path: 'explore', component: ExploreComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'scripts', component:ScriptsListComponent, children: [
-    {path: ':id/edit', component: ScriptEditComponent}
-  ]},
+  {path: 'scripts', component:ScriptsListComponent},
+  {path: 'editscript/:id', component: ScriptEditComponent},
   {path: 'new', component: ScriptNewComponent},
   {path: 's/:id', component: ScriptsDetailComponent},
   {path: 'lists', component: GreatsListComponent},
@@ -40,7 +40,9 @@ const appRoutes: Routes = [
   {path: 'films', component: FilmsComponent},
   {path: 'search', component: SearchComponent},
   {path: 'l/:id', component: ListdetailComponent},
-  {path: 'createlist', component: NewlistComponent}
+  {path: 'createlist', component: NewlistComponent},
+  {path: 'editlist/:id', component: EditlistComponent}
+
 
 
 ];

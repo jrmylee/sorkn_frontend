@@ -1,8 +1,20 @@
-<!-- <mat-card class="mat-card-trending">
+<div class="mat-card-lists">
   <mat-card-header>
-    <h1>Trending - Coming Soon</h1>
-    <a href="https://www.themoviedb.org/">
-      <img src="https://www.themoviedb.org/static_cache/v4/logos/208x226-stacked-green-9484383bd9853615c113f020def5cbe27f6d08a84ff834f41371f223ebad4a3c.png" class="logo-tmdb">
-    </a>
+    <h1>Recent Lists</h1>
   </mat-card-header>
-</mat-card> -->
+  <div class="container">
+    <div class="list" *ngFor="let list of lists | async; let i = index">
+        <div class="list-card" *ngIf="i<5" [routerLink]='["/l", list._id]'> 
+            <mat-card class="list-home-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(list.films[0]) + ')'}">
+            
+            </mat-card>
+            <h3 class="list-name">
+              {{list.name}}
+            </h3>
+
+          </div>
+      </div>
+    
+  </div>
+
+</div>

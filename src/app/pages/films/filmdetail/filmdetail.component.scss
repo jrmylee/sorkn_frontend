@@ -1,9 +1,21 @@
 .film-card{
   flex: 0 1 50%;
   max-width: 50%;  
-  background-color: #E0E0E0;
+  background-color: white;
 }
-
+.script-card{
+  flex: 0 1 50%;
+  max-width:100%;
+  white-space: pre;
+  font-family: 'Courier', arial;
+}
+/deep/ .mat-tooltip{
+  background-color: white;
+}
+.script{
+  // margin: auto;
+  // width:50%;
+}
 .film-title{
   font-size:2em;
 }
@@ -13,8 +25,13 @@
   background-repeat: no-repeat;
   background-position: top center;
   height: 400px;
-  border-radius: 10px;
   margin-top: 5px;
+  
+}
+.script-check{
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .container{
   display: flex;
@@ -68,5 +85,12 @@
     height: 150px;
     border-radius: 10px;
     margin-top: 5px;
+  }
+
+  .script-card{
+    margin-top:1em;
+    flex: 0 1 90%;
+    white-space: pre-line;
+    font-family: 'Courier', arial;
   }
 }

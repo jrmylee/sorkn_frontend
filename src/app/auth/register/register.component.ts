@@ -3,7 +3,7 @@ import { FormControl, AbstractControl, FormGroup, FormBuilder, Validators } from
 import {ErrorStateMatcher} from '@angular/material/core';
 import {ActivatedRoute, Params,Router} from '@angular/router';
 
-import {User} from '../../shared/user.model';
+import {User} from '../../models/user.model';
 
 import {AuthService} from '../auth.service';
 import {MatSnackBar} from '@angular/material';
@@ -58,15 +58,15 @@ export class RegisterComponent implements OnInit {
       age: 18,
       imagePath: ""
     };
-    console.log(user);
+
     this.authService.registerUser(user).subscribe((res)=>{
       this.snackBar.open(res.body,"Dismiss", {
-        duration: 2000
+        duration: 50000
       });
       this.router.navigate(["/explore"]);
       },(err)=>{
         this.snackBar.open("Username or Email already exists","Dismiss", {
-          duration: 2000
+          duration: 50000
         });
       }
     );

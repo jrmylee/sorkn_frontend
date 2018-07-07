@@ -1,4 +1,4 @@
-.mat-card-welcome{
+#mat-card-welcome{
   background-image: url('https://stillsfrmfilms.files.wordpress.com/2012/09/04.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,7 +18,6 @@
   padding: 10px 10px 10px 10px;
 }
 .header-text{
-  font-size: 3em;
   color: #000000;
 }
 @media only screen and (max-width: 600px) {

@@ -40,6 +40,8 @@ import {MatInputModule, MatButtonModule,  MatAutocompleteModule,
 import {CdkTableModule} from '@angular/cdk/table';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChangeDetectorRef } from '@angular/core';
+import { environment } from '../environments/environment';
+import {SmdFabSpeedDialModule} from 'angular-speed-dial';
 
 import { HeaderComponent } from './nav/header/header.component';
 import { ScriptsComponent } from './pages/scripts/scripts.component';
@@ -50,9 +52,20 @@ import { ScriptEditComponent } from './pages/scripts/script-edit/script-edit.com
 import { SidenavComponent} from './nav/sidenav/sidenav.component';
 import { UserComponent } from './user/user.component';
 import { ExploreComponent } from './pages/explore/explore.component';
-import { ScriptNewComponent } from './pages/scripts/script-new/script-new.component';
+import { ScriptNewComponent, ScriptComponent } from './pages/scripts/script-new/script-new.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { OpeningComponent } from './pages/explore/opening/opening.component';
+import { TrendingComponent } from './pages/explore/trending/trending.component';
+import { VerifyComponent } from './auth/verify/verify.component';
+import { InspirationComponent } from './pages/explore/inspiration/inspiration.component';
+import { FilmdetailComponent } from './pages/films/filmdetail/filmdetail.component';
+import { AboutComponent } from './pages/about/about.component';
+import { FilmsComponent } from './pages/films/films/films.component';
+import { SearchComponent } from './pages/search/search.component';
+import { ListdetailComponent, DeleteDialog } from './pages/greats-list/listdetail/listdetail.component';
+import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
+import { GreatsSPreviewComponent } from './pages/greats-list/greats-s-preview/greats-s-preview.component';
 
 import {ScriptService} from './pages/scripts/script.service';
 import {GreatsListService} from './pages/greats-list/greats-list.service';
@@ -63,18 +76,10 @@ import {ServerService} from './auth/server.service';
 import {NavService} from './nav/nav.service';
 import {SearchService} from './nav/header/search.service';
 
-import { HighlightDirective} from './shared/highlight.directive';
-import { OpeningComponent } from './pages/explore/opening/opening.component';
-import { TrendingComponent } from './pages/explore/trending/trending.component';
-import { VerifyComponent } from './auth/verify/verify.component';
-import { InspirationComponent } from './pages/explore/inspiration/inspiration.component';
-import { FilmdetailComponent } from './pages/films/filmdetail/filmdetail.component';
-import { AboutComponent } from './pages/about/about.component';
-import { FilmsComponent } from './pages/films/films/films.component';
-import { SearchComponent } from './pages/search/search.component';
-import { ListdetailComponent } from './pages/greats-list/listdetail/listdetail.component';
-import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
-import { GreatsSPreviewComponent } from './pages/greats-list/greats-s-preview/greats-s-preview.component';
+import { HighlightDirective} from './models/highlight.directive';
+import { EditlistComponent } from './pages/greats-list/editlist/editlist.component';
+import { ExternalNavService } from './nav/nav.external.service';
+import { FilmService } from './pages/films/film.service';
 
 @NgModule({
   declarations: [
@@ -102,7 +107,10 @@ import { GreatsSPreviewComponent } from './pages/greats-list/greats-s-preview/gr
     SearchComponent,
     ListdetailComponent,
     NewlistComponent,
-    GreatsSPreviewComponent
+    GreatsSPreviewComponent,
+    ScriptComponent,
+    EditlistComponent,
+    DeleteDialog
   ],
   imports: [
     BrowserModule,
@@ -140,12 +148,16 @@ import { GreatsSPreviewComponent } from './pages/greats-list/greats-s-preview/gr
     MatTooltipModule,
     FormsModule, AppRoutingModule,ReactiveFormsModule,
     CdkTableModule,
-    HttpClientModule,
+    HttpClientModule,    
     FlexLayoutModule,
+    SmdFabSpeedDialModule
   ],
   providers: [GreatsListService,TokenService,
-     ScriptService, UserService, AuthService, ServerService, NavService, SearchService
+     ScriptService, UserService, AuthService, ServerService, NavService, SearchService, ExternalNavService,
+     FilmService
   ],
+  
+  entryComponents:[ScriptComponent,ScriptNewComponent, DeleteDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule {
