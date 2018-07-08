@@ -20,19 +20,24 @@ import * as anime from 'animejs';
 export class GreatsListComponent implements OnInit {
   private subscription: Subscription;
   greats: Observable<GreatsList[]>;
+  loaded: boolean = false;
   username: Observable<String>;
   isLoggedIn: Boolean = false;
   dataSource: MatTableDataSource<GreatsList>;
   displayedColumns = ['name'];
 
   constructor(private greatsListService: GreatsListService, private authService: AuthService,private router: Router) {
-    this.greats = greatsListService.getLists();
+    this.greats = greatsListService.getLists().do(obj=>{
+      this.loaded = true;
+    });
     authService.isLoggedIn().subscribe(
       value =>{
         this.isLoggedIn = value;
-        greatsListService.getMyLists().subscribe(lists=>{
-          this.dataSource = new MatTableDataSource<GreatsList>(lists);
-        });
+        if(this.isLoggedIn){
+          greatsListService.getMyLists().subscribe(lists=>{
+            this.dataSource = new MatTableDataSource<GreatsList>(lists);
+          });
+        }
       }
     );
   }
