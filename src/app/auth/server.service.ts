@@ -31,21 +31,18 @@ export class ServerService implements OnInit{
   }
 
   addScript(script: Script){
-    console.log(JSON.stringify(script));
     return this.http.post(this.restAPILink + 'scripts', JSON.parse(JSON.stringify(script)), {
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve())),
     });
   }
 
   addList(list: GreatsList){
-    console.log(JSON.stringify(list));
     return this.http.post(this.restAPILink + 'filmlist', JSON.parse(JSON.stringify(list)), {
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve())),
     });
   }
 
   deleteList(id: string){
-    console.log(id);
     return this.http.delete<GreatsList>(this.restAPILink + 'filmlist/' + id, {
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve())),
     }

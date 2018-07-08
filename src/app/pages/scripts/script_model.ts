@@ -5,6 +5,6 @@ export interface Script {
     script: string;
     _creator: string;
     username: string;
-    privacy: boolean;
+    public: boolean;
     __v;
 }

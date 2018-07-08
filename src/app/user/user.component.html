@@ -22,10 +22,22 @@
       </div>
     </mat-tab>
     <mat-tab label="Scripts">
-      <div class="scripts-container" *ngIf="scripts">
-          <mat-card *ngFor="let script of scripts">
-            <h1>{{script.name}}</h1>
-          </mat-card>
+      <div class="scripts-container" *ngIf="scriptData">
+          <div class="table-container">
+            <mat-table #table [dataSource]="scriptData">
+              <!-- Position Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let script" (click)="clickScript(script)" style="cursor: pointer;">
+                    {{script.name}}
+                </mat-cell>
+              </ng-container>
+        
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
         </div>
     </mat-tab>
     <mat-tab label="Likes"> Content 3 </mat-tab>

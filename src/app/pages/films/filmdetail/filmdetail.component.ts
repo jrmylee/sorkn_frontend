@@ -39,7 +39,7 @@ export class FilmdetailComponent implements OnInit {
   }
 
   getBackdrop(){
-    return "http://image.tmdb.org/t/p/original/" + this.film.backdrop_path;
+    return "https://image.tmdb.org/t/p/original/" + this.film.backdrop_path;
   }
   getDirector(){
     

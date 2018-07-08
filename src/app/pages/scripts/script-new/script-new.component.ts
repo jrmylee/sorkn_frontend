@@ -49,7 +49,7 @@ export class ScriptNewComponent implements OnInit {
       _creator: "5a5b0fc49d54eb00146229ff",
       __v: "",
       username: "",
-      privacy: true
+      public: true
     };
     this.ScriptService.addScript(this.newScript).subscribe(obj=>{
       this.router.navigate(["/scripts"]);

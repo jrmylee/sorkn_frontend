@@ -9,6 +9,8 @@ import { Script } from '../pages/scripts/script_model';
 import { GreatsList } from '../models/list.model';
 import { GreatsListService } from '../pages/greats-list/greats-list.service';
 import { Film } from '../models/film.model';
+import { MatTableDataSource } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-user',
@@ -18,8 +20,11 @@ import { Film } from '../models/film.model';
 export class UserComponent implements OnInit {
   currentUser: User;
   loaded: boolean = false;
-  scripts: Script[];
   lists: GreatsList[];
+
+  scripts: Observable<Script[]>;
+  scriptData: MatTableDataSource<Script>;
+  displayedColumns = ['name'];
 
   constructor(private userService: UserService, private serverService: ServerService,
      private authService: AuthService,private route: ActivatedRoute,
@@ -34,10 +39,15 @@ export class UserComponent implements OnInit {
       this.userService.getUserLists(username).subscribe(list=>{
         this.lists = list;
       });
+      this.scripts = this.userService.getUserScripts(username);
       this.userService.getUserScripts(username).subscribe(scripts=>{
-        this.scripts = scripts;
+        this.scriptData = new MatTableDataSource<Script>(scripts);
       })
     }, (err)=>{console.log(err)});
+  }
+
+  clickScript(script: Script){
+    this.router.navigate(['/s',script._id]);
   }
 
   getCurrentUser(){

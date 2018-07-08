@@ -41,10 +41,10 @@ export class GreatsListService {
     return this.server.getList(id);
   }
   getBackdrop(film: Film){
-    return ("http://image.tmdb.org/t/p/original/" + film.poster_path);
+    return ("https://image.tmdb.org/t/p/original/" + film.poster_path);
   }
   getBackground(film: Film){
-    return ("http://image.tmdb.org/t/p/original/" + film.backdrop_path);
+    return ("https://image.tmdb.org/t/p/original/" + film.backdrop_path);
   }
   getCurrentUser(): Observable<User>{
     return this.server.getCurrentUser();

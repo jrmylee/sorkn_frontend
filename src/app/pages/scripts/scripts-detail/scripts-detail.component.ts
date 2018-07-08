@@ -25,16 +25,20 @@ export class ScriptsDetailComponent implements OnInit {
     route.params.subscribe( (params:Params)=>{
       let id = params['id'];
       let self = this.route.snapshot.queryParams["self"];
-      if(self == 'false'){
-        this.scriptService.getPublicScript(id).subscribe(obj=>{
-          this.setScript(obj);
-        });
-      }else if(self=='true'){
-        this.scriptService.getPublicScript(id).subscribe(obj=>{
-          this.setScript(obj);
-        });
-      }
+      // if(self == 'false'){
+      //   this.scriptService.getPublicScript(id).subscribe(obj=>{
+      //     this.setScript(obj);
+      //   });
+      // }else if(self=='true'){
+      //   this.scriptService.getPublicScript(id).subscribe(obj=>{
+      //     this.setScript(obj);
+      //   });
+      // }else{
         
+      // }
+      this.scriptService.getPublicScript(id).subscribe(obj=>{
+        this.setScript(obj);
+      });
     }, (err)=>{console.log(err)});
   }
 

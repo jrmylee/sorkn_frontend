@@ -10,7 +10,7 @@ export class ScriptService{
   classicFilmsList: ClassicFilm[] = [
     {
       title:"Her",
-      image:"http://image.tmdb.org/t/p/original//4f4tWe6uhwtuKMygfIAytR2W0pj.jpg",
+      image:"https://image.tmdb.org/t/p/original//4f4tWe6uhwtuKMygfIAytR2W0pj.jpg",
       id:"152601"
     },
     {

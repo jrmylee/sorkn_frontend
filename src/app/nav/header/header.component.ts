@@ -76,7 +76,7 @@ export class HeaderComponent implements OnInit {
         }
     }
     getBackdrop(str: String){
-      return "http://image.tmdb.org/t/p/original/" + str;
+      return "https://image.tmdb.org/t/p/original/" + str;
     }
     checkMobile(){
       if( navigator.userAgent.match(/Android/i)
