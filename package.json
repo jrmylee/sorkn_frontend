@@ -38,6 +38,7 @@
     "movie-info": "^2.0.4",
     "ng-material-floating-button": "^0.6.2",
     "ng2-float-btn": "0.0.3",
+    "node-sass": "^4.9.2",
     "rxjs": "^5.5.6",
     "skeleton-css": "^2.0.4",
     "zone.js": "^0.8.14"

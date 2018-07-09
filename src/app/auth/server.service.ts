@@ -11,7 +11,7 @@ import {TokenService} from './token.service';
 import { Credits } from '../models/cast.model';
 @Injectable()
 export class ServerService implements OnInit{
-  restAPILink: string = 'https://tranquil-escarpment-90924.herokuapp.com/';
+  restAPILink: string = 'localhost:3000/';
   movieAPILink: string = 'https://api.themoviedb.org/3/movie/';
   apiKey: string = "4d6f4eb20f539c104e0b660866432365";
 
