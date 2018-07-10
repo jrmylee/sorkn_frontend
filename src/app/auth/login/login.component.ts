@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginUser(value.username, value.password).subscribe(
           (res) => {
-            this.authService.storeToken(res.headers.get('X-Auth'));
+            console.log(res.headers.get('X-Auth'));
+            console.log(res.headers);
+
+            this.authService.storeToken(res.headers.get('x-auth'));
             this.authService.isLoggedin.next(true);
             this.snackBar.open("Logged in!", "Dismiss", {
               duration: 2000

@@ -33,7 +33,8 @@ export class AuthService implements OnInit{
       password: pw,
       username: "blank"
     };
-    return this.http.post(this.restAPILink + 'users/login', JSON.parse(JSON.stringify(user)), {observe: 'response', responseType: "text"});
+
+    return this.http.post(this.restAPILink + 'users/login', JSON.parse(JSON.stringify(user)), {observe: 'response'});
   }
 
   isLoggedIn(){
