@@ -1,21 +1,30 @@
 #mat-card-welcome{
-  background-image: url('https://stillsfrmfilms.files.wordpress.com/2012/09/04.png');
+  background-image: linear-gradient(rgb(56, 199, 255), green, red);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  height: 500px;
-  cursor: pointer;
+  background-attachment: fixed;
+  background-position: right;
+  height: 200px;
 }
+
 .welcome-header{
   display: flex;
   flex-direction: column;
+  font-weight: 500;
+  font-size:2em;
 }
-.film-title{
-  position:absolute;
-  bottom:0;
-  right:0;
-  color: #dee4ed;
-  padding: 10px 10px 10px 10px;
+.subtext{
+  margin-top:10px;
+  font-weight: 300;
+  font-size:1.2em;
+}
+.sign-up-buttons{
+  position: absolute;
+  bottom: 24px;
+}
+.get-started{
+  background-color: black;
+  color: white;
 }
 .header-text{
   color: #000000;

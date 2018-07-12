@@ -6,5 +6,7 @@ export interface Script {
     _creator: string;
     username: string;
     public: boolean;
+    likes: number;
+    pdfUrl: string;
     __v;
 }

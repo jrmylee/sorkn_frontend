@@ -2,7 +2,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 </header>
 <mat-sidenav-container class="main-container">
-  <mat-sidenav #sidenav mode="side" opened="true" class="sidenav"[fixedInViewport]=false>
+  <mat-sidenav #sidenav mode="over" opened="false" class="sidenav"[fixedInViewport]=false>
     <mat-list>
         <button mat-button routerLink="/explore" class="nav-button" (click)="onClick()">
           <div class="container">
@@ -32,12 +32,6 @@
           </div>
         </button>
         
-        <div class="bottom-nav-container">
-            <a>About </a>
-            <a>Contact Us</a>
-            <a> Careers</a>
-
-        </div>
 
     </mat-list>
   </mat-sidenav>

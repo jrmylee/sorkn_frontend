@@ -13,10 +13,21 @@
   background-color: white;
   cursor: pointer;
 }
+toolbar-container{
+  margin:auto;
+}
 .suggestions-container{
   z-index: 1;
   display: flex;
   justify-content: center;
+}
+
+.button-pages{
+}
+
+.header-buttons{
+  margin-left: 20px;
+  font-weight: 600;
 }
 
 .suggestions-card{

@@ -8,6 +8,17 @@
     <img src="favicon.ico" style="width: 40px;height: 40px;">
   </button>
 
+  <div class="button-pages" *ngIf="isDesktop">
+      <button mat-icon-button class="header-buttons" routerLink="/scripts">
+          Scripts
+      </button>
+      <button mat-icon-button class="header-buttons" routerLink="/films">
+          Films
+      </button>
+      <button mat-icon-button class="header-buttons" routerLink="/lists">
+          Lists
+      </button>
+    </div>
   <button mat-icon-button class="search-menu"
   style="margin-left:left;" *ngIf="checkMobile()" routerLink="/search">
     <mat-icon svgIcon="magnify"></mat-icon>
@@ -54,7 +65,7 @@
 </mat-toolbar>
 
   <div class="search-form" *ngIf="!checkMobile()">
-    <mat-card style="background-color: white;border-radius: 10px;">
+    <mat-card style="background-color: white;border-radius: 5px;">
       <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
           <mat-form-field
           class="search-field"

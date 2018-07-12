@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class FilmService implements OnInit{
-    restAPIURL: string = "https://tranquil-escarpment-90924.herokuapp.com/officialscript/";
+    restAPIURL: string = "http://34.209.77.190:3000/officialscript/";
     constructor(private http: HttpClient){
 
     }

@@ -24,6 +24,7 @@ export class ScriptNewComponent implements OnInit {
 
   ngOnInit() {
   }
+
   scriptEditor(){
     let dialogRef = this.dialog.open(ScriptComponent, {
       width: '500px',
@@ -34,6 +35,7 @@ export class ScriptNewComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
   onSubmit(form: NgForm){
     const value = form.value;
     var boo = false;
@@ -46,10 +48,12 @@ export class ScriptNewComponent implements OnInit {
       _id: "",
       name: value.title,
       script: value.script,
-      _creator: "5a5b0fc49d54eb00146229ff",
+      _creator: "",
       __v: "",
       username: "",
-      public: true
+      public: true,
+      likes: 0,
+      pdfUrl:""
     };
     this.ScriptService.addScript(this.newScript).subscribe(obj=>{
       this.router.navigate(["/scripts"]);

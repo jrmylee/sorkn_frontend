@@ -65,7 +65,6 @@ import { FilmsComponent } from './pages/films/films/films.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ListdetailComponent, DeleteDialog } from './pages/greats-list/listdetail/listdetail.component';
 import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
-import { GreatsSPreviewComponent } from './pages/greats-list/greats-s-preview/greats-s-preview.component';
 
 import {ScriptService} from './pages/scripts/script.service';
 import {GreatsListService} from './pages/greats-list/greats-list.service';
@@ -107,7 +106,6 @@ import { FilmService } from './pages/films/film.service';
     SearchComponent,
     ListdetailComponent,
     NewlistComponent,
-    GreatsSPreviewComponent,
     ScriptComponent,
     EditlistComponent,
     DeleteDialog

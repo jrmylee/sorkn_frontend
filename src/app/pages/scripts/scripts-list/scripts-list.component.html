@@ -1,6 +1,10 @@
   <div class="container">
     <div class="my-scripts">
-      <h1>Classic Screenplays</h1>
+      <h1>Classic Screenplays
+        <button mat-button>
+          Show All
+        </button>
+      </h1>
       <div class="scripts-container">
        <mat-card class="script-card" *ngFor="let classic of classicsList" [ngStyle]="{'background-image': 'url(' + classic.image + ')'}" (click)="clickScript(classic)">
           <h1 class="classic-title">{{classic.title}}</h1>
@@ -9,7 +13,11 @@
     </div>
     <div class="my-scripts" *ngIf="isLoggedIn">
         <router-outlet></router-outlet>
-          <h1>My Scripts</h1>
+          <h1>My Scripts
+              <button mat-button>
+                  Show All
+                </button>
+          </h1>
           <div div class="scripts-container">
               <mat-card class="script-card" *ngFor="let script of scripts$ | async">
                 <div [routerLink]='["/s",script._id]' [queryParams]="{ self: true }">
@@ -29,7 +37,11 @@
           </div>
       </div>
       <div class="my-scripts">
-        <h1 class="header">Recently Posted</h1>
+        <h1 class="header">Recently Posted
+            <button mat-button>
+                Show All
+              </button>
+        </h1>
         <div class="scripts-container">
             <mat-card class="script-card" *ngFor="let script of publicScripts$ | async" 
             [routerLink]='["/s",script._id]' [queryParams]="{ self: false }">

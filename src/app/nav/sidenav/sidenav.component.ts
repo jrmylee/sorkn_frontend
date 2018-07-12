@@ -35,42 +35,21 @@ export class SidenavComponent implements OnInit {
       }else{
         this.loading = false;
       }
+    });
+    this.navService.currentMessage.subscribe(msg=>{
+      if(msg == "toggled"){
+        this.sidenav.toggle();
+      }
     })
   }
   ngAfterViewInit(){
-    if(window.screen.width < 900){
-      this.sidenav.mode = "over";
-      this.navService.currentMessage.subscribe(message => {
-         if(this.sidenav.opened){
-           this.sidenav.close();
-         }else{
-           this.sidenav.open();
-         }
-      });
-    }else{
-      this.sidenav.open();
-    }
     this.width = window.screen.width;
     this.cdr.detectChanges();
-
-    this.router.events.subscribe((val: RouterEvent)=>{
-      if(val.url){
-        if(window.screen.width>900){
-          if(val.url.lastIndexOf('/s/',0)===0|| val.url.lastIndexOf('/new',0)===0 ){
-            this.sidenav.close();
-          }else{
-            this.sidenav.open();
-          }
-        }
-      }
-    });
   }
   @HostListener('window:resize', ['$event'])
     onResize(event) {
       if(window.screen.width<900){
         this.sidenav.close();
-      }else{
-        this.sidenav.open();
       }
     }
     onClick(){
