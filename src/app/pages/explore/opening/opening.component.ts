@@ -4,8 +4,6 @@ import {Film} from '../../../models/film.model';
 
 import {ServerService} from '../../../auth/server.service';
 
-import * as anime from 'animejs';
-import * as movieInfo from 'movie-info';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { NavService } from '../../../nav/nav.service';
 @Component({

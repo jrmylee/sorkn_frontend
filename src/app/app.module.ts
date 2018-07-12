@@ -9,39 +9,27 @@ import {AppRoutingModule} from './app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {MatInputModule, MatButtonModule,  MatAutocompleteModule,
-  MatButtonToggleModule,
   MatCardModule,
-  MatCheckboxModule,
   MatChipsModule,
-  MatDatepickerModule,
   MatDialogModule,
-  MatExpansionModule,
-  MatGridListModule,
   MatIconModule,
   MatListModule,
   MatMenuModule,
-  MatNativeDateModule,
   MatPaginatorModule,
   MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
   MatSelectModule,
   MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
   MatSnackBarModule,
   MatSortModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatStepperModule,MatIconRegistry} from '@angular/material';
+  MatIconRegistry} from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChangeDetectorRef } from '@angular/core';
 import { environment } from '../environments/environment';
-import {SmdFabSpeedDialModule} from 'angular-speed-dial';
 
 import { HeaderComponent } from './nav/header/header.component';
 import { ScriptsComponent } from './pages/scripts/scripts.component';
@@ -115,29 +103,17 @@ import { FilmService } from './pages/films/film.service';
     BrowserAnimationsModule,
     MatInputModule, MatButtonModule,MatAutocompleteModule,
     MatButtonModule,
-    MatButtonToggleModule,
     MatCardModule,
-    MatCheckboxModule,
     MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
     MatDialogModule,
-    MatExpansionModule,
-    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatNativeDateModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
@@ -147,8 +123,7 @@ import { FilmService } from './pages/films/film.service';
     FormsModule, AppRoutingModule,ReactiveFormsModule,
     CdkTableModule,
     HttpClientModule,    
-    FlexLayoutModule,
-    SmdFabSpeedDialModule
+    FlexLayoutModule
   ],
   providers: [GreatsListService,TokenService,
      ScriptService, UserService, AuthService, ServerService, NavService, SearchService, ExternalNavService,
