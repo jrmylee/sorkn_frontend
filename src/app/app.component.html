@@ -2,6 +2,6 @@
 
 </head>
 <ng-container class="container">
-  <app-header (featureSelected)="onNavigate($event)" class="header"></app-header>
+  <app-header class="header" *ngIf="headerOpen"></app-header>
   <app-sidenav class="sidenav"></app-sidenav>
 </ng-container>

@@ -26,13 +26,16 @@ export class HeaderComponent implements OnInit {
   searchTerm = new Subject<string>();
   results: any[] = [];
   constructor(private authService: AuthService, private userService: UserService,
-     private serverService: ServerService, private navService: NavService, private router: Router,
-   private cdr: ChangeDetectorRef, private searchService: SearchService) {
+              private serverService: ServerService, private navService: NavService,
+              private router: Router, private cdr: ChangeDetectorRef,
+              private searchService: SearchService) {
+               
     authService.isLoggedIn().subscribe(
       value =>{
         this.isLoggedIn = value;
       }
     );
+
     this.searchService.search(this.searchTerm).subscribe(results => {
       console.log(results);
       if(results.results != null){

@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import {HeaderComponent} from './header/header.component';
 import {SidenavComponent} from './sidenav/sidenav.component';
+import { Router } from '../../../node_modules/@angular/router';
 @Injectable()
 export class NavService implements OnInit{
   private openedSidenav = new BehaviorSubject<string>("closed");
@@ -15,7 +16,18 @@ export class NavService implements OnInit{
   private loading = new BehaviorSubject<string>("negative");
   loadingStatus = this.loading.asObservable();
 
-  constructor(){
+  private header= new BehaviorSubject<string>("open");
+  headerStatus = this.header.asObservable();
+  constructor(router: Router){
+    router.events.subscribe((res) => { 
+      if(router.url){
+        if(router.url.lastIndexOf("/s/", 0) === 0){
+          this.header.next("closed");
+        }else{
+          this.header.next("opened");
+        }
+      }
+    });
 
   }
   ngOnInit(){

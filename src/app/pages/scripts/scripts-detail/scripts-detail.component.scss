@@ -1,3 +1,34 @@
+.right-side{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.left-side{
+  display:flex;
+  align-items: center;
+}
+
+.script-info{
+  display:flex;
+  flex-direction: column;
+  font-size:15px;
+  font-weight:400;
+}
+.menu-item{
+  width: 300px;
+}
+/deep/ .mat-menu-content{
+  overflow-x: hidden;
+}
+.download-button{
+  background-color: rgb(32, 121, 255);
+  height: 40px;
+  color:white;
+}
+.script-toolbar{
+  background-color:white;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.336);
+}
 @media only screen and (min-width: 1024px) {
   .container{
     display: flex;

@@ -1,32 +1,32 @@
 <header>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 </header>
-<mat-sidenav-container class="main-container">
+<mat-sidenav-container [ngClass]="headerOpen ? 'main-container': 'main-container-top'">
   <mat-sidenav #sidenav mode="over" opened="false" class="sidenav"[fixedInViewport]=false>
     <mat-list>
         <button mat-button routerLink="/explore" class="nav-button" (click)="onClick()">
-          <div class="container">
+          <div class="icon-container">
             <mat-icon svgIcon="earth" class="mat-icon"></mat-icon>
             <a class="sidenav-text">Explore</a>
           </div>
         </button>
 
         <button mat-button routerLink="/scripts" class="nav-button" (click)="onClick()">
-          <div class="container">
+          <div class="icon-container">
             <mat-icon svgIcon="newspaper" class="mat-icon"></mat-icon>
             <a class="sidenav-text">Scripts</a>
           </div>
         </button>
 
         <button mat-button routerLink="/films" class="nav-button" (click)="onClick()">
-          <div class="container">
+          <div class="icon-container">
             <mat-icon svgIcon="film" class="mat-icon"></mat-icon>
             <a class="sidenav-text">Films</a>
           </div>
         </button>
 
         <button mat-button routerLink="/lists" class="nav-button" (click)="onClick()">
-          <div class="container">
+          <div class="icon-container">
             <mat-icon svgIcon="format-list-numbers" class="mat-icon"></mat-icon>
             <a class="sidenav-text">Lists</a>
           </div>
@@ -36,11 +36,9 @@
     </mat-list>
   </mat-sidenav>
 
-  <mat-sidenav-content  class="sidenav-content">
+  <mat-sidenav-content class="sidenav-content">
     <mat-progress-bar mode="indeterminate" *ngIf="loading" class="progress-bar"></mat-progress-bar>
-
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-
 
 </mat-sidenav-container>

@@ -7,6 +7,7 @@ import { ExternalNavService } from '../../../nav/nav.external.service';
 import { NavService } from '../../../nav/nav.service';
 import { AuthService } from '../../../auth/auth.service';
 import { Observable } from 'rxjs/Observable';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-scripts-detail',
@@ -15,35 +16,33 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ScriptsDetailComponent implements OnInit {
   script: Script;
+  user: User;
   state: string = 'small';
   loggedIn: Boolean;
   myTemplate: any;
+
   constructor(private scriptService: ScriptService, private route: ActivatedRoute,
-  private router: Router,private navService: ExternalNavService, private nav: NavService,
-  private authService: AuthService) {
+              private router: Router,private navService: ExternalNavService,
+              private nav: NavService, private authService: AuthService) {
+
     this.nav.load();
     route.params.subscribe( (params:Params)=>{
       let id = params['id'];
       let self = this.route.snapshot.queryParams["self"];
-      // if(self == 'false'){
-      //   this.scriptService.getPublicScript(id).subscribe(obj=>{
-      //     this.setScript(obj);
-      //   });
-      // }else if(self=='true'){
-      //   this.scriptService.getPublicScript(id).subscribe(obj=>{
-      //     this.setScript(obj);
-      //   });
-      // }else{
-        
-      // }
+
       this.scriptService.getPublicScript(id).subscribe(obj=>{
         this.setScript(obj);
       });
     }, (err)=>{console.log(err)});
+    
   }
 
   setScript(obj){
     this.script = obj;
+    this.scriptService.getUser(this.script.username).subscribe(userObj=>{
+      this.user = userObj;
+    });
+    
     this.nav.noload();
     this.myTemplate = this.script.script;
   }

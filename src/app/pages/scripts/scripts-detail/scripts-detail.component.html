@@ -1,7 +1,41 @@
 
 <div class="container">
-  <div class="script-card" *ngIf="script">
-    <div class="script-details" [innerHtml]="myTemplate">
-
+    <mat-toolbar class="script-toolbar">
+      <div class="left-side">
+        <button mat-icon-button routerLink="/scripts">
+          <mat-icon svgIcon="chevron-left"></mat-icon>
+        </button>
+  
+        <div class="script-info" *ngIf="user">
+            {{script.name}}<br>
+            {{user.username}}
+        </div>
+      </div>
+      <div class="right-side">
+        <button mat-icon-button 
+                [matMenuTriggerFor]="addMenu">
+            <mat-icon svgIcon="dots-vertical"></mat-icon>
+        </button>
+      
+      </div>
+  
+      <mat-menu #addMenu="matMenu" class="overflow-x">
+        <button mat-menu-item class="menu-item">
+          <span>Star</span>
+        </button>
+        <button mat-menu-item class="menu-item">
+          <span>Delete</span>
+        </button>
+        <button mat-menu-item class="menu-item">
+          <span>Print</span>
+        </button>
+        <button mat-menu-item class="menu-item">
+          <span>Download</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="script-card" *ngIf="script">
+      <div class="script-details" [innerHtml]="myTemplate">
+      </div>
     </div>
-  </div>
+  

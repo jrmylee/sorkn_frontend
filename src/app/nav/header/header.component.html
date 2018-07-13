@@ -1,13 +1,12 @@
 
+<!-- Header -->
 <mat-toolbar class="header">
   <button mat-icon-button class="hamburger-menu" *ngIf="!isDesktop" (click)="sidenavClick()">
     <mat-icon svgIcon="menu"></mat-icon>
   </button>
-
   <button mat-icon-button routerLink="/explore" class="logo-button">
     <img src="favicon.ico" style="width: 40px;height: 40px;">
   </button>
-
   <div class="button-pages" *ngIf="isDesktop">
       <button mat-icon-button class="header-buttons" routerLink="/scripts">
           Scripts
@@ -23,24 +22,20 @@
   style="margin-left:left;" *ngIf="checkMobile()" routerLink="/search">
     <mat-icon svgIcon="magnify"></mat-icon>
   </button>
-
   <div class="icon">
       <button mat-icon-button 
       *ngIf="isLoggedIn"
       [matMenuTriggerFor]="addMenu">
           <mat-icon svgIcon="plus"></mat-icon>
       </button>
-    
       <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isLoggedIn">
         <mat-icon svgIcon="account"></mat-icon>
       </button>
-      
       <button mat-button class="navbar-button"
       [routerLink]="['/login']"
         *ngIf="!isLoggedIn">Login
       </button>
   </div>
- 
   <mat-menu #menu="matMenu" >
     <button mat-menu-item [routerLink]="['/u', 'jrmylee ']">
       <mat-icon svgIcon="account-outline" ></mat-icon>
@@ -51,7 +46,6 @@
       <span>Log Out</span>
     </button>
   </mat-menu>
-
   <mat-menu #addMenu="matMenu" >
     <button mat-menu-item [routerLink]="['/new']">
       <mat-icon svgIcon="newspaper" class="mat-icon"></mat-icon>
@@ -64,36 +58,33 @@
   </mat-menu>
 </mat-toolbar>
 
-  <div class="search-form" *ngIf="!checkMobile()">
-    <mat-card style="background-color: white;border-radius: 5px;">
-      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
-          <mat-form-field
-          class="search-field"
-          style="width: 35%; max-height:50px; position:fixed;top:0;">
-            <span matPrefix>
-              <mat-icon svgIcon="magnify" style="vertical-align: middle;"></mat-icon>
-               &nbsp;
-             </span>
+<!-- Search Form Card -->
+<div class="search-form" *ngIf="!checkMobile()">
+  <mat-card style="background-color: white;border-radius: 5px;">
+    <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <mat-form-field class="search-field" style="width: 35%; max-height:50px; position:fixed;top:0;">
+          <span matPrefix>
+            <mat-icon svgIcon="magnify" style="vertical-align: middle;"></mat-icon>
+              &nbsp;
+           </span>
 
-            <span style="display:block;
-            width:100%;box-sizing:border-box;;">
-              <input matInput placeholder='Try "Blade Runner"'
-              name="search_value" (keyup)="searchTerm.next($event.target.value)"
-               ngModel autocomplete="off" style="width:100%;box-sizing:border-box">
-            </span>
-          </mat-form-field>
-        </form>
+          <span style="display:block;width:100%;box-sizing:border-box;;">
+            <input matInput placeholder='Try "Blade Runner"'
+            name="search_value" (keyup)="searchTerm.next($event.target.value)"
+              ngModel autocomplete="off" style="width:100%;box-sizing:border-box">
+          </span>
+        </mat-form-field>
+      </form>
+  </mat-card>
 
+<!-- Suggestions Cards -->
+  <mat-card class="suggestions-card" *ngIf="results.length!=0">
+    <div *ngFor="let result of results; let i = index">
+      <mat-card *ngIf="i<5" class="search-result-card" (click)="clickSuggestion(result)">
+        <mat-card-header>
+          <p style="position: absolute; left: 5; top: 0;">{{result.title}}({{result.release_date}})</p>
+        </mat-card-header>
       </mat-card>
-
-      <mat-card class="suggestions-card" *ngIf="results.length!=0">
-        <div *ngFor="let result of results; let i = index">
-          <mat-card *ngIf="i<5" class="search-result-card" (click)="clickSuggestion(result)">
-            <mat-card-header>
-              <p style="position: absolute; left: 5; top: 0;">{{result.title}}({{result.release_date}})</p>
-            </mat-card-header>
-          </mat-card>
-        </div>
-      </mat-card>
-
-  </div>
+    </div>
+  </mat-card>
+</div>

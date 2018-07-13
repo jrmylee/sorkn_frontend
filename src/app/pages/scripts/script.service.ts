@@ -73,7 +73,9 @@ export class ScriptService{
   getClassics(){
     return this.classicFilmsList;
   }
-
+  getUser(username: string){
+    return this.serverService.getUser(username);
+  }
 }
 export interface ClassicFilm{
   title:string;
