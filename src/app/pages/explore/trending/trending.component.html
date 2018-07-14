@@ -4,8 +4,8 @@
   </mat-card-header>
   <div class="container">
     <div class="list" *ngFor="let list of lists | async; let i = index">
-        <div class="list-card" *ngIf="i<5" [routerLink]='["/l", list._id]'> 
-            <mat-card class="list-home-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(list.films[0]) + ')'}">
+        <div class="list-card" *ngIf="i<4" [routerLink]='["/l", list._id]'> 
+            <mat-card class="list-img-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(list.films[0]) + ')'}">
             
             </mat-card>
             <h3 class="list-name">

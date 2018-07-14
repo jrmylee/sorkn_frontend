@@ -1,17 +1,20 @@
 .container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  margin-left: 5em;
+  justify-content: center;
+}
+.table-container{
+  background-color: #fafafa;
 }
 .user-card{
-  flex: 0 1 80%;
+  flex: 0 1 60%;
   height:75px;
   margin-top: 1em;
-  background-color: white;
+  background-color: #fafafa;
 }
 .tab-groups{
-  flex: 0 1 70%;
+  flex: 0 1 60%;
 }
 .profile-image{
   background-image: url('https://www.serviceseeking.com.au/assets/business_profile/default-profile-pic.svg');
@@ -19,6 +22,7 @@
 }
 .list-card{
   border-radius: 10px;
+  background-color:#fafafa;
   cursor: pointer;
 }
 .films-container{

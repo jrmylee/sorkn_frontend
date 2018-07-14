@@ -1,13 +1,13 @@
 .container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
 
 }
 .mat-card-welcome{
   margin-top:1em;
-  flex: 0 1 80%;
+  width:1032px;
   margin-bottom: 1em;
 }
 
@@ -15,12 +15,12 @@
   width:80%;
 }
 .indie{
-  flex: 0 1 80%;
+  width:1032px;
   margin-bottom: 1em;
 }
 .trending{
-  flex: 0 1 80%;
-  max-width:80%;
+  width:1032px;
+  max-width:1032px;
   margin-bottom: 1em;
 
 }

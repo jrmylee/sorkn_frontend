@@ -1,8 +1,8 @@
 .container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
 }
 
 .scripts-container{
@@ -25,15 +25,10 @@
   width: 40%;
 }
 
-.explore-container{
-  flex: 0 1 80%;
-  display: flex;
-}
-
 .my-scripts{
-  flex: 0 1 80%;
+  width: 1032px;
   margin-top: 1em;
-  max-width: 80%;
+  max-width: 1032px;
 }
 .classic-title{
   color:rgba(255, 255, 255, 0.911);
