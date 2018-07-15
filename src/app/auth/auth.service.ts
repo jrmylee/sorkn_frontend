@@ -11,7 +11,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class AuthService implements OnInit{
 
-  restAPILink: string = 'http://34.209.77.190:3000/';
+  restAPILink: string = 'https://34.209.77.190:3000/';
   public isLoggedin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private tokenService: TokenService, private router: Router){
