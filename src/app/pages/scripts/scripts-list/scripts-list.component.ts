@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { Location } from '@angular/common';
 import{Script} from '../script_model';
 import{ScriptService, ClassicFilm} from '../script.service';
 import{Router, ActivatedRoute, Params} from '@angular/router';
@@ -16,8 +17,10 @@ import { DeleteDialog } from '../../greats-list/listdetail/listdetail.component'
 
 })
 export class ScriptsListComponent implements OnInit {
-  constructor(private scriptService: ScriptService, private router:Router
-  ,private route: ActivatedRoute, private authService: AuthService, private navService: NavService, public dialog: MatDialog) { }
+  constructor(private scriptService: ScriptService, private router:Router,
+              private route: ActivatedRoute, private authService: AuthService,
+              private navService: NavService, public dialog: MatDialog,
+              private location: Location) { }
 
   scripts$ : Observable<Script[]>;
   publicScripts$: Observable<Script[]>;
@@ -48,8 +51,10 @@ export class ScriptsListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        console.log("deleting");        
-        this.scriptService.deleteScript(id);
+        this.scriptService.deleteScript(id).subscribe(
+          (res)=>{   location.reload();
+          },
+          (err)=>{console.log(err)});;
       }
     });
   }

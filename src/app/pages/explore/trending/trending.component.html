@@ -1,20 +1,32 @@
+<div class="film-screenplays">
+  <h1>Popular Screenplays</h1>
+  <div class="screenplay-containers">
+    <div class="screenplay" *ngFor="let script of screenplays | async; let i = index">
+      <mat-card class="list-img-card" [ngStyle]="{'background-image': 'url(' + script.image + ')'}">
+        <h3>
+          <span class="list-name">
+              {{script.title}}
+          </span>
+        </h3>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
 <div class="mat-card-lists">
   <mat-card-header>
     <h1>Recent Lists</h1>
   </mat-card-header>
   <div class="container">
-    <div class="list" *ngFor="let list of lists | async; let i = index">
-        <div class="list-card" *ngIf="i<4" [routerLink]='["/l", list._id]'> 
-            <mat-card class="list-img-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(list.films[0]) + ')'}">
-            
-            </mat-card>
-            <h3 class="list-name">
-              {{list.name}}
-            </h3>
-
-          </div>
-      </div>
+    <div class="list" *ngFor="let list of lists | async; let i = index" [routerLink]='["/l", list._id]'>
+      <mat-card class="list-img-card" [ngStyle]="{'background-image': 'url(' + getBackdrop(list.films[0]) + ')'}">
+        <h3>
+          <span class="list-name">
+            {{list.name}}
+          </span>
+        </h3>
+      </mat-card>
+    </div>
     
   </div>
-
 </div>

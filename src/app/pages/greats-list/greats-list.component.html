@@ -1,7 +1,12 @@
 
 <div class="container">
   <mat-card class="explore-lists">
-    <h1 class="header">Recent Lists</h1>
+    <h1 class="header">
+      Recent Lists
+      <button mat-button>
+        Show All
+      </button>
+    </h1>
     <div class="list-card" *ngFor="let list of greats | async" [routerLink]='["/l", list._id]'>
       <h2>{{list.name}} by {{list.username}}</h2>
       <div class="films-container">

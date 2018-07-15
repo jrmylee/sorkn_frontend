@@ -19,8 +19,6 @@ export class FilmService implements OnInit{
     }
 
     getFilmScript(title: String){
-        console.log(this.restAPIURL + title);
-
         return this.http.get(this.restAPIURL + title,{responseType: 'text'}).catch(e=>{
             throw e;
         });

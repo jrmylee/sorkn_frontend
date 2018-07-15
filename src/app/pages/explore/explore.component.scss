@@ -27,17 +27,15 @@
 @media only screen and (max-width: 600px) {
   .mat-card-welcome{
     margin-top:5px;
-    flex: 0 1 95%;
+    width:95%;
     margin-bottom: 5px;
   }
   .indie{
-    flex: 0 1 95%;
+    width:95%;
     margin-bottom: 5px;
   }
   .trending{
-    flex: 0 1 95%;
-    margin-bottom: 5px;
-    max-width:95%;
+    width:95%;
 
   }
 }

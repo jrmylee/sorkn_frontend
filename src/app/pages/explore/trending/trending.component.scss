@@ -1,32 +1,40 @@
 .container{
   display:flex;
   flex-direction: row;
-  overflow-x: auto;
   justify-content: center;
-
+  overflow-x:hidden;
+}
+.screenplay-containers{
+  display: flex;
+  flex-wrap: wrap;
+}
+.screenplay{
+  flex: 0 0 50%;
 }
 .mat-card-lists{
 
 }
 .list{
   display: flex;
-  flex: 0 1 25%;
+  flex: 0 0 24%;
+  margin-right: 5px;
 }
 .list-card{
-  display:flex;
-  flex-direction: column;
-  cursor: pointer;
-  .list-img-card{
-    margin-right: 10px;
-    flex: 0 1 150px;
-    width: 300px;
-    background-image: url('https://theultralinx.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTI5MDI0MjYyNDA0MjM5MzMw/materialdesign4.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center;
-  }
+  display: flex;
+  width: 100%;
 }
-
+.list-img-card{
+  flex: 0 1 100%;
+  height:100px;
+  margin-right:5px;
+  margin-top:5px;
+  border-radius:10px;
+  background-image: url('https://theultralinx.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTI5MDI0MjYyNDA0MjM5MzMw/materialdesign4.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  cursor: pointer;
+}
 .logo-tmdb{
   position:absolute;
   bottom:0;
@@ -36,4 +44,8 @@
 }
 .list-name{
   margin:auto;
+  color:white;
+  background: rgb(0, 0, 0); /* fallback color */
+  padding:0 5px;
+  border-radius: 5px;
 }

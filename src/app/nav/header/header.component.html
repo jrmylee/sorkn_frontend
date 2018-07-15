@@ -37,21 +37,21 @@
       </button>
   </div>
   <mat-menu #menu="matMenu" >
-    <button mat-menu-item [routerLink]="['/u', 'jrmylee ']">
+    <button mat-menu-item class="menu-item" [routerLink]="['/u', 'jrmylee ']">
       <mat-icon svgIcon="account-outline" ></mat-icon>
       <span>My Account</span>
     </button>
-    <button mat-menu-item (click)="onLogout()">
+    <button mat-menu-item class="menu-item" (click)="onLogout()">
       <mat-icon svgIcon="power"></mat-icon>
       <span>Log Out</span>
     </button>
   </mat-menu>
   <mat-menu #addMenu="matMenu" >
-    <button mat-menu-item [routerLink]="['/new']">
+    <button mat-menu-item class="menu-item" [routerLink]="['/new']">
       <mat-icon svgIcon="newspaper" class="mat-icon"></mat-icon>
       <span>Script</span>
     </button>
-    <button mat-menu-item [routerLink]="['/createlist']">
+    <button mat-menu-item class="menu-item" [routerLink]="['/createlist']">
       <mat-icon svgIcon="format-list-numbers" class="mat-icon"></mat-icon>
       <span>List</span>
     </button>

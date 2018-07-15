@@ -27,8 +27,11 @@ export class GreatsListComponent implements OnInit {
   displayedColumns = ['name'];
 
   constructor(private greatsListService: GreatsListService, private authService: AuthService,private router: Router) {
-    this.greats = greatsListService.getLists().do(obj=>{
+    this.greats = greatsListService.getLists().map(obj=>{
       this.loaded = true;
+      return obj.slice(0,4);
+    }).catch(err=>{
+      return Observable.throw(err)
     });
     authService.isLoggedIn().subscribe(
       value =>{

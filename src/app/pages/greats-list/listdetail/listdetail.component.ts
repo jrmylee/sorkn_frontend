@@ -17,7 +17,8 @@ import { User } from '../../../models/user.model';
 export class ListdetailComponent implements OnInit {
   list$: Observable<GreatsList>;
   myList: boolean= false;
-  constructor(private listService: GreatsListService, private activatedRoute: ActivatedRoute,public dialog: MatDialog) {
+  constructor(private listService: GreatsListService, private activatedRoute: ActivatedRoute,
+              public dialog: MatDialog, private router: Router) {
     this.activatedRoute.params.subscribe( (params:Params)=>{
       let id = params['id'];
       this.list$ = listService.getList(id);
@@ -46,7 +47,11 @@ export class ListdetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        this.listService.deleteList(id);
+        this.listService.deleteList(id).subscribe(res=>{
+          this.router.navigate(["/lists"]);
+        },(err)=>{
+          console.log(err);
+        });;
       }
     });
   }

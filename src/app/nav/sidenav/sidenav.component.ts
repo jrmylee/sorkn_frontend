@@ -63,8 +63,6 @@ export class SidenavComponent implements OnInit {
       }
     }
     onClick(){
-      if(this.width<900){
-        this.sidenav.toggle();
-      }
+      this.sidenav.toggle();
     }
 }

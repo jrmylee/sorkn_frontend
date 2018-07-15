@@ -46,7 +46,7 @@ export class ServerService implements OnInit{
     return this.http.delete<GreatsList>(this.restAPILink + 'filmlist/' + id, {
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve())),
     }
-  );
+    );
   }
 
   patchList(id:string, list: GreatsList){
@@ -71,9 +71,7 @@ export class ServerService implements OnInit{
   deleteScript(id: string){
     return this.http.delete(this.restAPILink + 'scripts/' + id, {
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve()))
-    }).subscribe(
-      (res)=>{console.log("Deleted " + res)},
-      (err)=>{console.log(err)});
+    });
   }
 
   getScripts(){

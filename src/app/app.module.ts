@@ -46,7 +46,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { OpeningComponent } from './pages/explore/opening/opening.component';
 import { TrendingComponent } from './pages/explore/trending/trending.component';
 import { VerifyComponent } from './auth/verify/verify.component';
-import { InspirationComponent } from './pages/explore/inspiration/inspiration.component';
+import { InspirationComponent, GetStartedDialog } from './pages/explore/inspiration/inspiration.component';
 import { FilmdetailComponent } from './pages/films/filmdetail/filmdetail.component';
 import { AboutComponent } from './pages/about/about.component';
 import { FilmsComponent } from './pages/films/films/films.component';
@@ -96,7 +96,8 @@ import { FilmService } from './pages/films/film.service';
     NewlistComponent,
     ScriptComponent,
     EditlistComponent,
-    DeleteDialog
+    DeleteDialog,
+    GetStartedDialog
   ],
   imports: [
     BrowserModule,
@@ -130,7 +131,7 @@ import { FilmService } from './pages/films/film.service';
      FilmService
   ],
   
-  entryComponents:[ScriptComponent,ScriptNewComponent, DeleteDialog],
+  entryComponents:[ScriptComponent,ScriptNewComponent, DeleteDialog,GetStartedDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule {
