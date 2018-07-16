@@ -9,7 +9,7 @@ import { Film } from '../../models/film.model';
 
 @Injectable()
 export class FilmService implements OnInit{
-    restAPIURL: string = "https://34.209.77.190:3000/officialscript/";
+    restAPIURL: string = "https://blackasmidnight.com:8443/";
     films: Film[] = [
 
     ];
