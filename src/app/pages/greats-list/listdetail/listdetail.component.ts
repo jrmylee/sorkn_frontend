@@ -6,8 +6,7 @@ import {Film} from '../../../models/film.model';
 import {GreatsList} from '../../../models/list.model';
 import {GreatsListService} from '.././greats-list.service';
 
-import {Subscription} from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
+import {Subscription,  Observable } from 'rxjs';
 import { User } from '../../../models/user.model';
 @Component({
   selector: 'app-listdetail',

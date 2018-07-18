@@ -7,9 +7,10 @@ import {MatTableDataSource, MatSort, MatDialog} from '@angular/material';
 import {HighlightDirective} from '../../../models/highlight.directive';
 
 import {AuthService} from '../../../auth/auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { NavService } from '../../../nav/nav.service';
 import { DeleteDialog } from '../../greats-list/listdetail/listdetail.component';
+import { tap } from '../../../../../node_modules/rxjs/operators';
 @Component({
   selector: 'app-scripts-list',
   templateUrl: './scripts-list.component.html',
@@ -39,9 +40,9 @@ export class ScriptsListComponent implements OnInit {
     if(this.isLoggedIn){
       this.scripts$ = this.scriptService.getScripts()
     }
-    this.publicScripts$ = this.scriptService.getPublicScripts().do(scripts=>{
+    this.publicScripts$ = this.scriptService.getPublicScripts().pipe(tap(scripts=>{
       this.navService.noload();
-    });
+    }));
     this.classicsList = this.scriptService.getClassics();
   }
   deleteScript(id: string){

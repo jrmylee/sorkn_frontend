@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchService} from '../../nav/header/search.service';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 
 @Component({

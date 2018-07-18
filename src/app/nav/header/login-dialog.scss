@@ -1,0 +1,32 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.full-width{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.submit-button{
+    display: inline-block;
+    width:100%;
+}
+.forgot-password{
+    cursor: pointer;
+    color: rgb(0, 132, 137);
+}
+.make-account{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.make-account-button{
+    cursor: pointer;
+    color: rgb(0, 132, 137);
+}
+.back-button{
+    cursor: pointer;
+    color: rgb(0, 132, 137)
+}

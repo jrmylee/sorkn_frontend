@@ -1,10 +1,8 @@
-import {Subject} from 'rxjs/Subject';
+import {Subject,  Observable ,  BehaviorSubject } from 'rxjs';
 import {Film} from '../../models/film.model';
 import {GreatsList} from '../../models/list.model';
 import {ServerService} from '../../auth/server.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs';
 import { User } from '../../models/user.model';
 
 @Injectable()

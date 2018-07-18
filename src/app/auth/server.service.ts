@@ -1,6 +1,6 @@
 import {Injectable, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import {User} from '../models/user.model';
 import {Script} from '../pages/scripts/script_model';
@@ -11,7 +11,7 @@ import {TokenService} from './token.service';
 import { Credits } from '../models/cast.model';
 @Injectable()
 export class ServerService implements OnInit{
-  restAPILink: string = 'https://blackasmidnight.com:8443/';
+  restAPILink: string = 'https://blackasmidnight.com:3000/';
   movieAPILink: string = 'https://api.themoviedb.org/3/movie/';
   apiKey: string = "4d6f4eb20f539c104e0b660866432365";
 
@@ -24,6 +24,7 @@ export class ServerService implements OnInit{
   getUser(username: string){
     return this.http.get<User>(this.restAPILink + 'users/'+username);
   }
+
   getCurrentUser(){
     return this.http.get<User>(this.restAPILink + 'users/me', {
       headers: new HttpHeaders().set('x-auth', JSON.parse(this.tokenService.retrieve()))

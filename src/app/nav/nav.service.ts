@@ -3,7 +3,7 @@ import { Component, OnInit,EventEmitter, Output, ViewChildren, ElementRef} from 
 import {MatButton} from '@angular/material';
 
 import * as Rx from "rxjs";
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 import {HeaderComponent} from './header/header.component';
 import {SidenavComponent} from './sidenav/sidenav.component';

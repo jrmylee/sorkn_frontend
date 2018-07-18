@@ -10,7 +10,7 @@ import { GreatsList } from '../models/list.model';
 import { GreatsListService } from '../pages/greats-list/greats-list.service';
 import { Film } from '../models/film.model';
 import { MatTableDataSource } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user',

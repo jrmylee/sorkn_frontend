@@ -31,7 +31,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChangeDetectorRef } from '@angular/core';
 import { environment } from '../environments/environment';
 
-import { HeaderComponent } from './nav/header/header.component';
+import { HeaderComponent, LoginDialog } from './nav/header/header.component';
 import { ScriptsComponent } from './pages/scripts/scripts.component';
 import { ScriptsListComponent } from './pages/scripts/scripts-list/scripts-list.component';
 import { ScriptsDetailComponent } from './pages/scripts/scripts-detail/scripts-detail.component';
@@ -97,7 +97,8 @@ import { FilmService } from './pages/films/film.service';
     ScriptComponent,
     EditlistComponent,
     DeleteDialog,
-    GetStartedDialog
+    GetStartedDialog,
+    LoginDialog
   ],
   imports: [
     BrowserModule,
@@ -131,7 +132,7 @@ import { FilmService } from './pages/films/film.service';
      FilmService
   ],
   
-  entryComponents:[ScriptComponent,ScriptNewComponent, DeleteDialog,GetStartedDialog],
+  entryComponents:[ScriptComponent,ScriptNewComponent, DeleteDialog,GetStartedDialog, LoginDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule {

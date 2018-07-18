@@ -1,12 +1,12 @@
 import { Component, OnInit,EventEmitter, Output, ViewChildren, ElementRef, HostListener} from '@angular/core';
-import {Form} from '@angular/forms';
+import {Form, NgForm} from '@angular/forms';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 import {MatMenuTrigger} from '@angular/material/menu';
 import * as Rx from "rxjs";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import {ChangeDetectorRef} from '@angular/core';
 
 import {UserService} from '../../user/user.service';
@@ -14,6 +14,7 @@ import {AuthService} from '../.././auth/auth.service';
 import {ServerService} from '../.././auth/server.service';
 import {NavService} from '.././nav.service';
 import {SearchService} from './search.service';
+import { MatDialog, MatDialogRef, MatSnackBar } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +29,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private userService: UserService,
               private serverService: ServerService, private navService: NavService,
               private router: Router, private cdr: ChangeDetectorRef,
-              private searchService: SearchService) {
+              private searchService: SearchService, public dialog: MatDialog) {
                
     authService.isLoggedIn().subscribe(
       value =>{
@@ -55,9 +56,22 @@ export class HeaderComponent implements OnInit {
     }
     this.cdr.detectChanges();
   }
+
+  onClickLogin(){
+    const dialogRef = this.dialog.open(LoginDialog, {
+      height: '60%',
+      width: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   onLogout(){
     this.authService.logoutUser();
   }
+
   onSearch(form: any){
     this.router.navigate(["/f", this.searchTerm]);
   }
@@ -96,4 +110,63 @@ export class HeaderComponent implements OnInit {
          return false;
        }
     }
+}
+
+@Component({
+  selector: 'login-dialog',
+  templateUrl: 'login-dialog.html',
+  styleUrls: ['./login-dialog.scss']
+})
+export class LoginDialog {
+  state: string = "none";
+  loggedIn: boolean = false;
+  email: string;
+  constructor(public dialogRef: MatDialogRef<LoginDialog>, private authService: AuthService,
+              private router: Router, private snackBar: MatSnackBar){
+    this.authService.isLoggedin.subscribe((obj)=>{
+      this.loggedIn = obj;
+    });
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  onClick(str: string){
+    this.state = str;
+  }
+
+  onResend(){
+    this.authService.resendEmail(this.email).subscribe(res=>{
+      this.snackBar.open(res.body, "Dismiss", {
+        duration: 2000
+      })
+    }, err=>{
+      console.log(err);
+    });
+  }
+
+  onSubmit(form: NgForm){
+    var value = form.value;
+    console.log(value);
+    this.authService.loginUser(value.username, value.password).subscribe(
+          (res) => {
+        console.log(res.headers.get('X-Auth'));
+        console.log(res.headers);
+
+        this.authService.storeToken(res.headers.get('x-auth'));
+        this.authService.isLoggedin.next(true);
+        this.snackBar.open("Logged in!", "Dismiss", {
+          duration: 2000
+        });
+        this.router.navigate(['/explore']);
+      },
+      (err) => {
+        console.log(err.error);
+        this.snackBar.open(JSON.parse(err.error).msg, "Dismiss", {
+          duration: 2000
+        });
+      }
+    );
+  }
+
+
 }

@@ -1,12 +1,12 @@
+
+import {throwError as observableThrowError, Subscription,  Observable, throwError } from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
 import { Component, OnInit, Input } from '@angular/core';
 import {Film} from '../../models/film.model';
 import {GreatsList} from '../../models/list.model';
 
 import {GreatsListService} from './greats-list.service';
 import {AuthService} from '../.././auth/auth.service';
-
-import {Subscription} from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
 import { MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 
@@ -27,12 +27,14 @@ export class GreatsListComponent implements OnInit {
   displayedColumns = ['name'];
 
   constructor(private greatsListService: GreatsListService, private authService: AuthService,private router: Router) {
-    this.greats = greatsListService.getLists().map(obj=>{
+    this.greats = greatsListService.getLists().pipe(
+      map((obj:GreatsList[])=>{
       this.loaded = true;
       return obj.slice(0,4);
-    }).catch(err=>{
-      return Observable.throw(err)
-    });
+    }), catchError(err=>{
+      return throwError(err)
+    }));
+
     authService.isLoggedIn().subscribe(
       value =>{
         this.isLoggedIn = value;

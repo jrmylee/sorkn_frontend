@@ -7,7 +7,7 @@ import * as Rx from "rxjs";
 import {AuthService} from '../.././auth/auth.service';
 import {NavService} from '../nav.service';
 import { ActivatedRoute, Params, Router, RouterEvent } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { ActiveDescendantKeyManager } from '@angular/cdk/a11y';
 @Component({
   selector: 'app-sidenav',

@@ -6,7 +6,7 @@ import { ExternalNavService } from '../../../nav/nav.external.service';
 
 import { NavService } from '../../../nav/nav.service';
 import { AuthService } from '../../../auth/auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { User } from '../../../models/user.model';
 
 @Component({

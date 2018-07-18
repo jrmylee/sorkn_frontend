@@ -1,0 +1,61 @@
+<div class="container" style="text-align: center;" *ngIf="state==='none'">
+        <h2>
+                Welcome Back!
+            </h2>
+            <p>
+                Login to view your homepage, contribute your own scripts, give feedback and more.
+            </p>
+            <div style="margin-top: 3em; margin-bottom: 3em; display: flex; flex-direction: column;">
+                <button mat-raised-button (click)="onClick('google')">
+                        Sign in with Google
+                </button>
+                <button mat-raised-button style="margin-top: 5px;" (click)="onClick('facebook')">
+                    Sign in with Facebook
+                </button>
+                <button mat-raised-button style="margin-top: 5px;" (click)="onClick('email')">
+                        Sign in with email
+                </button>
+            </div>
+</div>
+
+<div class="container" *ngIf="state==='email'">
+    <h1>Login</h1>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" style="width:100%;">
+        <div class="full-width">
+            <mat-form-field class="full-width">
+            <input matInput
+            placeholder="Email"
+            class="form-control"
+            ngModel
+            name="username">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+            <input matInput
+            placeholder="Password"
+            ngModel
+            name="password"
+            [type]="'password'">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button 
+            type="submit" 
+            class="submit-button"
+            style="background-color: rgb(68, 199, 223);">
+            Submit
+        </button>
+    </form>
+
+    <p class="forgot-password" (click)="onClick('forgot')">Forgot Password?</p>
+    <div class="make-account">
+        <p class="dont-have"> Dont have an account?</p>
+        <p class="make-account-button">Make one!</p>
+    </div>
+    <button mat-button (click)="onClick('none')" class="back-button">Back</button>
+</div>
+
+<div class="container" *ngIf="state==='forgot'">
+    <p>Enter your email</p>
+    <input matInput placeholder="rickdeckard@gmail.com" [(ngModel)]="email" type="text">
+    <button mat-raised-button class="submit-button" (click)="onResend()">Send</button>
+</div>

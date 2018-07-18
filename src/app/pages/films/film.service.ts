@@ -4,12 +4,13 @@ import {MatButton} from '@angular/material';
 
 import * as Rx from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
+import { catchError } from '../../../../node_modules/rxjs/operators';
 
 @Injectable()
 export class FilmService implements OnInit{
-    restAPIURL: string = "https://blackasmidnight.com:8443/";
+    restAPIURL: string = "https://blackasmidnight.com:3000/officialscript/";
     films: Film[] = [
 
     ];
@@ -23,8 +24,8 @@ export class FilmService implements OnInit{
     }
 
     getFilmScript(title: String){
-        return this.http.get(this.restAPIURL + title,{responseType: 'text'}).catch(e=>{
+        return this.http.get(this.restAPIURL + title,{responseType: 'text'}).pipe(catchError(e=>{
             throw e;
-        });
+        }));
     }
 }

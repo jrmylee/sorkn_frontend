@@ -5,13 +5,12 @@ import {User} from '../models/user.model';
 import {Script} from '../pages/scripts/script_model';
 
 import {TokenService} from './token.service';
-import {Subject} from 'rxjs';
+import {Subject, BehaviorSubject} from 'rxjs';
 import {ActivatedRoute, Params,Router} from '@angular/router';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class AuthService implements OnInit{
 
-  restAPILink: string = 'https://blackasmidnight.com:8443/';
+  restAPILink: string = 'https://blackasmidnight.com:3000/';
   public isLoggedin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private tokenService: TokenService, private router: Router){
@@ -35,6 +34,11 @@ export class AuthService implements OnInit{
     };
 
     return this.http.post(this.restAPILink + 'users/login', JSON.parse(JSON.stringify(user)), {observe: 'response'});
+  }
+
+  resendEmail(e: string){
+    var email = {email: e};
+    return this.http.post(this.restAPILink + 'resend', JSON.parse(JSON.stringify(email)),{observe:'response', responseType: 'text'});
   }
 
   isLoggedIn(){

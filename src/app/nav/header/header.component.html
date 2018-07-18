@@ -32,7 +32,7 @@
         <mat-icon svgIcon="account"></mat-icon>
       </button>
       <button mat-button class="navbar-button"
-      [routerLink]="['/login']"
+      (click)="onClickLogin()"
         *ngIf="!isLoggedIn">Login
       </button>
   </div>

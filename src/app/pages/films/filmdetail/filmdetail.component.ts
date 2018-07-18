@@ -5,7 +5,7 @@ import {ServerService} from '../../../auth/server.service';
 
 import {Film} from '../../../models/film.model';
 import { Credits } from '../../../models/cast.model';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { FilmService } from '../film.service';
 import { NavService } from '../../../nav/nav.service';
 @Component({

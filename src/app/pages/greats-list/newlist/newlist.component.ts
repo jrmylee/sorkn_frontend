@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChildren, ViewChild,ChangeDetectorRef } from '@a
 import {SearchComponent} from '../../search/search.component';
 import { SearchService } from '../../../nav/header/search.service';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject ,  Observable } from 'rxjs';
 import { Film } from '../../../models/film.model';
 import { GreatsList } from '../../../models/list.model';
 import { FormGroup, NgForm } from '@angular/forms';
@@ -10,7 +10,6 @@ import { GreatsListService } from '../greats-list.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 import {CdkTableModule} from '@angular/cdk/table';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-newlist',
