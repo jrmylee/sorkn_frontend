@@ -1,18 +1,23 @@
-<div class="container" style="text-align: center;">
+<div class="container">
     <h2>
             Join Sorkn!
         </h2>
         <p>
             Create an account to personalize your homepage, contribute your own scripts, give feedback and more.
         </p>
-        <div style="margin-top: 3em; margin-bottom: 3em;">
-            <button mat-raised-button>
+        <div class="button-container" style="margin-top: 3em; margin-bottom: 3em;">
+            <button mat-raised-button class="sign-up-button">
                     Sign up with Google
             </button>
-            <button mat-raised-button>
+            <button mat-raised-button class="sign-up-button">
                 Sign up with Facebook
             </button>
+            <button mat-raised-button class="sign-up-button" (click)="redirect('register')">
+                Sign up with Email
+            </button>
         </div>
-       
-        <p>Already have an account? Sign in.</p>
+        <div class="have-account">
+            <p>Already have an account?</p>
+            <p class="sign-in-button" (click)="redirect('login')">Sign in.</p>
+        </div>
 </div>

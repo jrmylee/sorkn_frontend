@@ -22,9 +22,16 @@ toolbar-container{
   justify-content: center;
 }
 
-.header-buttons{
+.header-buttons-default{
   margin-left: 20px;
-  font-weight: 600;
+  font-weight: 500;
+  color:#666;
+}
+
+.header-buttons-selected{
+  margin-left: 20px;
+  font-weight: 500;
+  color: black;
 }
 
 .suggestions-card{

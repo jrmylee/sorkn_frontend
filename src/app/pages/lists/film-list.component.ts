@@ -5,17 +5,17 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Film} from '../../models/film.model';
 import {GreatsList} from '../../models/list.model';
 
-import {GreatsListService} from './greats-list.service';
-import {AuthService} from '../.././auth/auth.service';
+import {FilmListService} from './film-list.service';
+import {AuthService} from '../../auth/auth.service';
 import { MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 
 import * as anime from 'animejs';
 
 @Component({
-  selector: 'app-greats-list',
-  templateUrl: './greats-list.component.html',
-  styleUrls: ['./greats-list.component.scss'],
+  selector: 'app-film-list',
+  templateUrl: './film-list.component.html',
+  styleUrls: ['./film-list.component.scss'],
 })
 export class GreatsListComponent implements OnInit {
   private subscription: Subscription;
@@ -26,7 +26,7 @@ export class GreatsListComponent implements OnInit {
   dataSource: MatTableDataSource<GreatsList>;
   displayedColumns = ['name'];
 
-  constructor(private greatsListService: GreatsListService, private authService: AuthService,private router: Router) {
+  constructor(private greatsListService: FilmListService, private authService: AuthService,private router: Router) {
     this.greats = greatsListService.getLists().pipe(
       map((obj:GreatsList[])=>{
       this.loaded = true;

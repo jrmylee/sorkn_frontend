@@ -8,13 +8,16 @@
     <img src="favicon.ico" style="width: 40px;height: 40px;">
   </button>
   <div class="button-pages" *ngIf="isDesktop">
-      <button mat-icon-button class="header-buttons" routerLink="/scripts">
+      <button mat-icon-button [ngClass]=" pageState !== 'scripts'?'header-buttons-default':'header-buttons-selected'" 
+       routerLink="/scripts">
           Scripts
       </button>
-      <button mat-icon-button class="header-buttons" routerLink="/films">
+      <button mat-icon-button [ngClass]=" pageState !== 'films'?'header-buttons-default':'header-buttons-selected'"
+       routerLink="/films">
           Films
       </button>
-      <button mat-icon-button class="header-buttons" routerLink="/lists">
+      <button mat-icon-button [ngClass]=" pageState !== 'lists'?'header-buttons-default':'header-buttons-selected'"
+       routerLink="/lists">
           Lists
       </button>
     </div>

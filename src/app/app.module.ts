@@ -3,6 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FileUploadModule } from '@ng-forms/file-upload';
 import {RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -35,7 +36,7 @@ import { HeaderComponent, LoginDialog } from './nav/header/header.component';
 import { ScriptsComponent } from './pages/scripts/scripts.component';
 import { ScriptsListComponent } from './pages/scripts/scripts-list/scripts-list.component';
 import { ScriptsDetailComponent } from './pages/scripts/scripts-detail/scripts-detail.component';
-import { GreatsListComponent } from './pages/greats-list/greats-list.component';
+import { GreatsListComponent } from './pages/lists/film-list.component';
 import { ScriptEditComponent } from './pages/scripts/script-edit/script-edit.component';
 import { SidenavComponent} from './nav/sidenav/sidenav.component';
 import { UserComponent } from './user/user.component';
@@ -51,11 +52,11 @@ import { FilmdetailComponent } from './pages/films/filmdetail/filmdetail.compone
 import { AboutComponent } from './pages/about/about.component';
 import { FilmsComponent } from './pages/films/films/films.component';
 import { SearchComponent } from './pages/search/search.component';
-import { ListdetailComponent, DeleteDialog } from './pages/greats-list/listdetail/listdetail.component';
-import { NewlistComponent } from './pages/greats-list/newlist/newlist.component';
+import { ListdetailComponent, DeleteDialog } from './pages/lists/listdetail/listdetail.component';
+import { NewlistComponent } from './pages/lists/newlist/newlist.component';
 
 import {ScriptService} from './pages/scripts/script.service';
-import {GreatsListService} from './pages/greats-list/greats-list.service';
+import {FilmListService} from './pages/lists/film-list.service';
 import {UserService} from './user/user.service';
 import {AuthService} from './auth/auth.service';
 import {TokenService} from './auth/token.service';
@@ -64,7 +65,7 @@ import {NavService} from './nav/nav.service';
 import {SearchService} from './nav/header/search.service';
 
 import { HighlightDirective} from './models/highlight.directive';
-import { EditlistComponent } from './pages/greats-list/editlist/editlist.component';
+import { EditlistComponent } from './pages/lists/editlist/editlist.component';
 import { ExternalNavService } from './nav/nav.external.service';
 import { FilmService } from './pages/films/film.service';
 
@@ -125,9 +126,10 @@ import { FilmService } from './pages/films/film.service';
     FormsModule, AppRoutingModule,ReactiveFormsModule,
     CdkTableModule,
     HttpClientModule,    
-    FlexLayoutModule
+    FlexLayoutModule,
+    FileUploadModule
   ],
-  providers: [GreatsListService,TokenService,
+  providers: [FilmListService,TokenService,
      ScriptService, UserService, AuthService, ServerService, NavService, SearchService, ExternalNavService,
      FilmService
   ],

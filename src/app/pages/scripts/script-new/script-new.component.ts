@@ -14,12 +14,12 @@ export class ScriptNewComponent implements OnInit {
   myForm: FormGroup;
   newScript: Script;
   privacy: String;
+  public uploadedFiles: Array<File> = [];
+
   constructor(private ScriptService: ScriptService,
   private router:Router, public dialog: MatDialog) {
     this.myForm= new FormGroup({
-
     });
-
   }
 
   ngOnInit() {
@@ -45,19 +45,19 @@ export class ScriptNewComponent implements OnInit {
       }
     }
     this.newScript =  {
-      _id: "",
+      _id: "", _creator: "", __v: "",username: "",pdfUrl:"",
       name: value.title,
       script: value.script,
-      _creator: "",
-      __v: "",
-      username: "",
       public: true,
       likes: 0,
-      pdfUrl:""
     };
     this.ScriptService.addScript(this.newScript).subscribe(obj=>{
       this.router.navigate(["/scripts"]);
     });
+  }
+
+  onFileUpload(){
+    console.log(this.uploadedFiles);
   }
 }
 @Component({

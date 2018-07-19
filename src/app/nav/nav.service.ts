@@ -1,23 +1,25 @@
-import {Injectable, HostListener} from '@angular/core'
-import { Component, OnInit,EventEmitter, Output, ViewChildren, ElementRef} from '@angular/core';
-import {MatButton} from '@angular/material';
+import {Injectable, OnInit} from '@angular/core'
+import { BehaviorSubject, from } from 'rxjs';
+import { Router } from '@angular/router'
 
-import * as Rx from "rxjs";
-import { BehaviorSubject } from 'rxjs';
-
-import {HeaderComponent} from './header/header.component';
-import {SidenavComponent} from './sidenav/sidenav.component';
-import { Router } from '../../../node_modules/@angular/router';
 @Injectable()
 export class NavService implements OnInit{
   private openedSidenav = new BehaviorSubject<string>("closed");
-  currentMessage = this.openedSidenav.asObservable();
+  currentMessage = from(this.openedSidenav)
 
   private loading = new BehaviorSubject<string>("negative");
-  loadingStatus = this.loading.asObservable();
+  loadingStatus = from(this.loading)
 
   private header= new BehaviorSubject<string>("open");
-  headerStatus = this.header.asObservable();
+  headerStatus = from(this.header);
+
+  private clickLoginDialog = new BehaviorSubject<string>("none");
+  loginDialogMsg = from(this.clickLoginDialog);
+
+
+  private pageOn = new BehaviorSubject<string>("home");
+  pageState = from(this.pageOn);
+
   constructor(router: Router){
     router.events.subscribe((res) => { 
       if(router.url){
@@ -25,11 +27,23 @@ export class NavService implements OnInit{
           this.header.next("closed");
         }else{
           this.header.next("opened");
+          if(router.url == "/explore"){
+            this.pageOn.next("home");
+          }else if(router.url == "/scripts"){
+            this.pageOn.next("scripts");
+          }else if(router.url == "/films"){
+            this.pageOn.next("films");
+          }else if(router.url == "/lists"){
+            this.pageOn.next("lists");
+          }
         }
       }
     });
 
   }
+
+
+
   ngOnInit(){
 
   }
@@ -43,6 +57,9 @@ export class NavService implements OnInit{
   }
   noload(){
     this.loading.next("negative");
+  }
+  loginDialogOpen(msg: string){
+    this.clickLoginDialog.next(msg);
   }
   toggleSidenav(){
     

@@ -6,7 +6,7 @@ import * as Rx from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
-import { catchError } from '../../../../node_modules/rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class FilmService implements OnInit{

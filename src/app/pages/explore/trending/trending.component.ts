@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GreatsListService } from '../../greats-list/greats-list.service';
 import { GreatsList } from '../../../models/list.model';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError} from 'rxjs/operators';
@@ -7,6 +6,8 @@ import { Film } from '../../../models/film.model';
 import { NavService } from '../../../nav/nav.service';
 import { ScriptService, ClassicFilm } from '../../scripts/script.service';
 import { ServerService } from '../../../auth/server.service';
+import { Router } from '@angular/router'
+import { FilmListService } from '../../lists/film-list.service';
 @Component({
   selector: 'app-trending',
   templateUrl: './trending.component.html',
@@ -18,8 +19,9 @@ export class TrendingComponent implements OnInit {
   // Going to change this to recently starred films, for now just classics
   screenplays: Observable<ClassicFilm[]> = of(this.scriptService.getClassics()); 
 
-  constructor(private greatsListService: GreatsListService,private navService: NavService,
-              private scriptService: ScriptService, private serverService: ServerService) {
+  constructor(private greatsListService: FilmListService,private navService: NavService,
+              private scriptService: ScriptService, private serverService: ServerService,
+              private router: Router) {
     this.lists = greatsListService.getLists().pipe(
       map((obj:GreatsList[])=>{
       this.navService.noload();
@@ -40,5 +42,8 @@ export class TrendingComponent implements OnInit {
   }
   getBackdrop(film: Film){
     return this.greatsListService.getBackground(film);
+  }
+  clickFilm(id: string){
+    this.router.navigate(['/f',id]);
   }
 }

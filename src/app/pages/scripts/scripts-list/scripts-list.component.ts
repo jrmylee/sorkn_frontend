@@ -9,8 +9,8 @@ import {HighlightDirective} from '../../../models/highlight.directive';
 import {AuthService} from '../../../auth/auth.service';
 import { Observable } from 'rxjs';
 import { NavService } from '../../../nav/nav.service';
-import { DeleteDialog } from '../../greats-list/listdetail/listdetail.component';
-import { tap } from '../../../../../node_modules/rxjs/operators';
+import { DeleteDialog } from '../../lists/listdetail/listdetail.component';
+import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-scripts-list',
   templateUrl: './scripts-list.component.html',

@@ -2,7 +2,7 @@
   <h1>Popular Screenplays</h1>
   <div class="screenplay-containers">
     <div class="screenplay" *ngFor="let script of screenplays | async; let i = index">
-      <mat-card class="list-img-card" [ngStyle]="{'background-image': 'url(' + script.image + ')'}">
+      <mat-card class="list-img-card" [ngStyle]="{'background-image': 'url(' + script.image + ')'}" (click)="clickFilm(script.id)">
         <h3>
           <span class="list-name">
               {{script.title}}

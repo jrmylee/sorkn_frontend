@@ -3,7 +3,7 @@
     <mat-tab label="Fountain">
       <div class="new-script-card">
           <h1>Enter Fountain Script</h1>
-          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm" style="width:100%;">
             <mat-form-field class="half-width">
               <input matInput
               placeholder="Name"
@@ -35,10 +35,10 @@
         </div>  
       </mat-tab>
       <mat-tab label="Import">
-          <div class="new-script-card">
+          <div class="upload-card">
               <h1>Upload Script</h1>
-              <mat-card class="chooser-button"><h3>Choose file(PDF)</h3></mat-card>
-              <button mat-raised-button type="submit" class="submit">Submit</button>
+              <file-upload [(ngModel)]="uploadedFiles" name="files" fileslimit="2" class="chooser-button"></file-upload>
+              <button mat-raised-button class="submit" (click)="onFileUpload()">Submit</button>
             </div>  
       </mat-tab>
     </mat-tab-group>

@@ -6,7 +6,7 @@ import { Subject ,  Observable } from 'rxjs';
 import { Film } from '../../../models/film.model';
 import { GreatsList } from '../../../models/list.model';
 import { FormGroup, NgForm } from '@angular/forms';
-import { GreatsListService } from '../greats-list.service';
+import { FilmListService } from '../film-list.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 import {CdkTableModule} from '@angular/cdk/table';
@@ -30,7 +30,7 @@ export class EditlistComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   greatslist: GreatsList;
-  constructor( private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute,private listService: GreatsListService) {
+  constructor( private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute,private listService: FilmListService) {
     this.activatedRoute.params.subscribe( (params:Params)=>{
       this.id = params['id'];
       listService.getList(this.id).subscribe(res=>{

@@ -7,7 +7,7 @@ import {AuthService} from '../auth/auth.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Script } from '../pages/scripts/script_model';
 import { GreatsList } from '../models/list.model';
-import { GreatsListService } from '../pages/greats-list/greats-list.service';
+import { FilmListService } from '../pages/lists/film-list.service';
 import { Film } from '../models/film.model';
 import { MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs';
@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService, private serverService: ServerService,
      private authService: AuthService,private route: ActivatedRoute,
-     private router: Router, private greatsListService: GreatsListService) { }
+     private router: Router, private greatsListService: FilmListService) { }
 
   ngOnInit() {
     this.route.params.subscribe( (params:Params)=>{

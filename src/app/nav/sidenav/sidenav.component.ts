@@ -4,7 +4,7 @@ import {MatDrawer} from '@angular/material';
 import {ChangeDetectorRef} from '@angular/core';
 import * as Rx from "rxjs";
 
-import {AuthService} from '../.././auth/auth.service';
+import {AuthService} from '../../auth/auth.service'
 import {NavService} from '../nav.service';
 import { ActivatedRoute, Params, Router, RouterEvent } from '@angular/router';
 import { Observable } from 'rxjs';

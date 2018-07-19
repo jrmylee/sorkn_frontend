@@ -1,3 +1,4 @@
+<!-- Homepage, OAUTH not complete -->
 <div class="container" style="text-align: center;" *ngIf="state==='none'">
         <h2>
                 Welcome Back!
@@ -18,9 +19,10 @@
             </div>
 </div>
 
+ <!-- Login with Email -->
 <div class="container" *ngIf="state==='email'">
     <h1>Login</h1>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm" style="width:100%;">
+    <form (ngSubmit)="onLogin(f)" #f="ngForm" style="width:100%;">
         <div class="full-width">
             <mat-form-field class="full-width">
             <input matInput
@@ -40,8 +42,7 @@
         </div>
         <button mat-raised-button 
             type="submit" 
-            class="submit-button"
-            style="background-color: rgb(68, 199, 223);">
+            class="submit-button">
             Submit
         </button>
     </form>
@@ -49,13 +50,77 @@
     <p class="forgot-password" (click)="onClick('forgot')">Forgot Password?</p>
     <div class="make-account">
         <p class="dont-have"> Dont have an account?</p>
-        <p class="make-account-button">Make one!</p>
+        <p class="make-account-button" (click)="onClick('register')">Make one!</p>
     </div>
     <button mat-button (click)="onClick('none')" class="back-button">Back</button>
 </div>
 
+<!-- Forgot Password Page: REST route incomplete -->
 <div class="container" *ngIf="state==='forgot'">
     <p>Enter your email</p>
     <input matInput placeholder="rickdeckard@gmail.com" [(ngModel)]="email" type="text">
     <button mat-raised-button class="submit-button" (click)="onResend()">Send</button>
+    <button mat-button (click)="onClick('none')" class="back-button">Back</button>
+
+</div>
+
+<!-- Register page -->
+<div class="container" *ngIf="state=='register'">
+        <h1>Register</h1>
+        <form [formGroup]="regForm" style="width:100%;" (ngSubmit)="onSubmit()">
+          <div class="full-width">
+            <mat-form-field class="form-field">
+              <input matInput
+              placeholder="Email"
+              formControlName="email"
+              >
+      
+              <mat-error *ngIf="email.invalid">
+                Please enter a valid email address
+              </mat-error>
+      
+            </mat-form-field>
+      
+            <mat-form-field class="form-field">
+              <input matInput
+              formControlName="user"
+              placeholder="Username"
+              >
+      
+              <mat-error *ngIf="user.invalid">
+                Please enter a valid username
+              </mat-error>
+      
+            </mat-form-field>
+      
+            <mat-form-field class="form-field">
+              <input matInput
+              formControlName="name"
+              placeholder="Name"
+              >
+      
+              <mat-error *ngIf="name.invalid">
+                Please enter a name!
+              </mat-error>
+      
+            </mat-form-field>
+            <mat-form-field class="form-field">
+              <input matInput
+              placeholder="Password"
+              formControlName="password"
+              [type]="'password'"
+              >
+      
+              <mat-error *ngIf="password.invalid">
+                Enter a password longer than 6 characters
+              </mat-error>
+      
+            </mat-form-field>
+      
+          </div>
+          <button mat-raised-button type="submit" class="submit-button">Submit</button>
+        </form>
+        <button mat-button (click)="onClick('none')" 
+         class="back-button" 
+         style="margin-top: 10px;">Back</button>
 </div>

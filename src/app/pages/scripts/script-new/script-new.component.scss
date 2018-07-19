@@ -9,8 +9,18 @@
   display: inline-block;
 }
 .new-script-card{
-  flex: 0 1 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 100%;
   min-width: 80%;
+  margin-top: 1em;
+}
+.upload-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 100%;
   margin-top: 1em;
 }
 .container{
@@ -24,10 +34,5 @@
   width:100%;
 }
 .chooser-button{
-  width:90%;
-  text-align: center;
-  height: 300px;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  background-color: #999999;
+  width:100%;
 }

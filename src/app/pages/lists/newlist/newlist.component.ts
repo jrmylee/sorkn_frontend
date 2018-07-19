@@ -6,10 +6,10 @@ import { Subject ,  Observable } from 'rxjs';
 import { Film } from '../../../models/film.model';
 import { GreatsList } from '../../../models/list.model';
 import { FormGroup, NgForm } from '@angular/forms';
-import { GreatsListService } from '../greats-list.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 import {CdkTableModule} from '@angular/cdk/table';
+import { FilmListService } from '../film-list.service';
 
 @Component({
   selector: 'app-newlist',
@@ -29,7 +29,7 @@ export class NewlistComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   greatslist: GreatsList;
-  constructor( private searchService: SearchService, private router: Router, private listService: GreatsListService) {
+  constructor( private searchService: SearchService, private router: Router, private listService: FilmListService) {
 
     this.searchService.search(this.searchTerm).subscribe(results => {
       if(results.results != null){

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/user.model';
 
 @Injectable()
-export class GreatsListService {
+export class FilmListService {
   greats: GreatsList[];
   loaded: Boolean=false;
   constructor(private server: ServerService){

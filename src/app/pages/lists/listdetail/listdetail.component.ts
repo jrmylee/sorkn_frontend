@@ -4,10 +4,10 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 import {Film} from '../../../models/film.model';
 import {GreatsList} from '../../../models/list.model';
-import {GreatsListService} from '.././greats-list.service';
 
 import {Subscription,  Observable } from 'rxjs';
 import { User } from '../../../models/user.model';
+import { FilmListService } from '../film-list.service';
 @Component({
   selector: 'app-listdetail',
   templateUrl: './listdetail.component.html',
@@ -16,7 +16,7 @@ import { User } from '../../../models/user.model';
 export class ListdetailComponent implements OnInit {
   list$: Observable<GreatsList>;
   myList: boolean= false;
-  constructor(private listService: GreatsListService, private activatedRoute: ActivatedRoute,
+  constructor(private listService: FilmListService, private activatedRoute: ActivatedRoute,
               public dialog: MatDialog, private router: Router) {
     this.activatedRoute.params.subscribe( (params:Params)=>{
       let id = params['id'];

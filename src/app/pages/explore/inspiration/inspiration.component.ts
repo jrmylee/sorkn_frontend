@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '../../../../../node_modules/@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
+import { NavService } from '../../../nav/nav.service';
 
 @Component({
   selector: 'app-inspiration',
@@ -33,15 +34,21 @@ export class InspirationComponent implements OnInit {
 @Component({
   selector: 'get-started-dialog',
   templateUrl: 'get-started-dialog.html',
+  styleUrls: ['./get-started-dialog.scss']
 })
 export class GetStartedDialog {
 
-  constructor(
-    public dialogRef: MatDialogRef<GetStartedDialog>){
+  constructor(public dialogRef: MatDialogRef<GetStartedDialog>, private navService: NavService){
 
     }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  redirect(msg: string){
+    this.navService.loginDialogOpen(msg);
+    this.dialogRef.close();
+
   }
 
 }
