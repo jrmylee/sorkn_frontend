@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class FilmService implements OnInit{
-    restAPIURL: string = "localhost:3000/officialscript/";
+    restAPIURL: string = "http://localhost:3000/officialscript/";
     films: Film[] = [
 
     ];

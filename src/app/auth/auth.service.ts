@@ -10,7 +10,7 @@ import {ActivatedRoute, Params,Router} from '@angular/router';
 @Injectable()
 export class AuthService implements OnInit{
 
-  restAPILink: string = 'localhost:3000/';
+  restAPILink: string = 'http://localhost:3000/';
   public isLoggedin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private tokenService: TokenService, private router: Router){
